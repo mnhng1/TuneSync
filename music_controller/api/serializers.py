@@ -8,3 +8,7 @@ class RoomSerializer(serializers.ModelSerializer):
         fields = ('id', 'code', 'host', 'guest_can_pause', 'votes_to_skip', 'created_at') # This tells the ModelSerializer that these are the fields of the Room model you want to include in the serialized output (when converting from a Django Room object to JSON) and in the deserialized input (when converting from JSON to a Django Room object).
 
 
+class CreateRoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('guest_can_pause', 'votes_to_skip', 'created_at')
