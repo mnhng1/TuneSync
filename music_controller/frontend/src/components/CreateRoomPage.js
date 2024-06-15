@@ -11,11 +11,13 @@ import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioGroup from '@mui/material/RadioGroup';
 import   { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateRoomPage(props) {
     const defaultVotes = 2;
     const [guestCanPause, setGuestCanPause] = useState(true);
     const [votesToSkip, setVotesToSkip] = useState(defaultVotes);
+    const navigate = useNavigate();
 
     const handleVotesChange = (e) => {
         setVotesToSkip(parseInt(e.target.value));
@@ -38,7 +40,7 @@ export default function CreateRoomPage(props) {
 
         fetch("/api/create-room", requestOptions)
             .then((response) => response.json())
-            .then((data) => console.log(data))
+            .then((data) => navigate(`/room/${data.code}`))
             .catch((error) => console.error('Error:', error));
     };
 
