@@ -1,19 +1,57 @@
 
-import React, {Component} from "react";
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import {Link} from "react-router-dom";
-import Radio from '@mui/material/Radio';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import RadioGroup from '@mui/material/RadioGroup';
+import React, {Component, useState} from "react";
+import { TextField,Button, Grid, Typography } from "@mui/material";
+import {Link} from "react-router-dom"; 
+
+
 
 export default function JoinRoomPage(props) {
    // Add this line to log the value of the name prop
-  return (
-    <h1>RoomJoinPage</h1>
-  );
-}
+  const [roomCode,setroomCode] = useState("")
+  const [Error,setError] = useState("")
+
+  const handleTextFieldChange = (e) => {
+    setroomCode(e.target.value);
+    
+  };
+
+  const roomButtonPressed = () => {
+    console.log(roomCode)
+  }
+
+   return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      width: '100vw',
+      border: '2px solid red' // Border for debugging
+    }}>
+      <Grid container spacing={1} justifyContent="center" alignItems="center">
+        <Grid item xs={12} align="center">
+          <Typography variant="h4" component="h4">Join a room</Typography>
+        </Grid>
+        <Grid item xs={12} align="center">
+          <TextField
+            error={Error}
+            label="Code"
+            placeholder="Enter a Room Code"
+            value={roomCode}
+            helperText={Error}
+            variant="outlined"
+            onChange={handleTextFieldChange}
+          />
+        </Grid>
+        <Grid item xs={12} align="center">
+          <Button variant = "contained" color="primary" onClick={roomButtonPressed}>Enter Room</Button>
+        </Grid>
+        <Grid item xs={12} align="center">
+          <Button variant = "contained" color="secondary" to="/" component = {Link}>Back</Button>
+        </Grid>
+      </Grid>
+    </div>
+
+
+    
+  );}
