@@ -3,12 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import {Grid, Button, Typography} from '@mui/material'
 import { Link } from "react-router-dom"
 
-export default function Room(props) {
+export default function Room({clearRoomCode}) {
     const { roomCode } = useParams();
     const [votesToSkip, setVotesToSkip] = useState(2);
     const [guestCanPause, setGuestCanPause] = useState(false);
     const [isHost, setIsHost] = useState(false);
     const navigate = useNavigate()
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,7 +24,7 @@ export default function Room(props) {
                 setIsHost(roomData.is_host);
             } catch (error) {
                 console.error('Error fetching room details:', error);
-                navigate("/")
+                navigate("/");
                 // Handle error state here if needed
             }
         };
@@ -44,6 +45,7 @@ export default function Room(props) {
             })
             .catch(error => {
                 console.error('Error:', error);
+                navigate("/");
             });
     }
 

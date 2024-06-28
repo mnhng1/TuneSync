@@ -26,7 +26,7 @@ export default function JoinRoomPage(props) {
       .then((response) => {
         if (!response.ok) {
           throw new Error("Room not found");
-        } else
+        } 
         navigate(`/room/${roomCode}`);
       })
       .catch((error) => {

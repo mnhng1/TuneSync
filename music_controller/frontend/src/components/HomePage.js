@@ -28,14 +28,19 @@ function RenderHomePage() {
     );
 }
 
+
+
 export default function HomePage(props) {
     const [roomCode, setRoomCode] = React.useState(null)
     const navigate = useNavigate()
+    
+    
     React.useEffect(() => {
         fetch('/api/user-in-room')
             .then((response) => response.json())
             .then((data) => {
                 if (data.code) {
+                    console.log(data.code)
                     setRoomCode(data.code);
                     navigate(`/room/${data.code}`);
                 }
@@ -44,12 +49,13 @@ export default function HomePage(props) {
                 console.error('Error fetching room data:', error);
             });
     }, [roomCode]);
+    
     return (
         <Routes>
-            <Route exact path="/" element={roomCode? null: <RenderHomePage />} />
+            <Route exact path="/" element={roomCode? null: <RenderHomePage />}  />
             <Route path="/create-room" element={<CreateRoomPage />} />
             <Route path="/join-room" element={<JoinRoomPage />} />
-            <Route path="/room/:roomCode" element={<Room />} />
+            <Route path="/room/:roomCode" element={<Room  />}  />
         </Routes>
     );
 }
