@@ -21,12 +21,12 @@ export default function JoinRoomPage(props) {
         code: roomCode,
       }),
     };
-
+            
     fetch("/api/join-room", requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Room not found");
-        }
+        } else
         navigate(`/room/${roomCode}`);
       })
       .catch((error) => {
