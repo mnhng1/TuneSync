@@ -1,5 +1,5 @@
 
-import React, {Component} from "react";
+import React from "react";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -45,14 +45,7 @@ export default function CreateRoomPage(props) {
     };
 
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-            width:'100vw',
-            border: '2px solid red' // Border for debugging
-          }}>
+        
         <Grid container spacing={2} justifyContent="center" alignItems="center"  >
         <Grid item xs={12} align="center">
           <Typography component="h4" variant="h4">
@@ -117,6 +110,6 @@ export default function CreateRoomPage(props) {
           </Button>
         </Grid>
       </Grid>
-      </div>
+      
     );
   }

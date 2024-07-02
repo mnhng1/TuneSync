@@ -7,6 +7,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function App(props) {
   return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      width:'100vw',
+      border: '2px solid red' 
+    }}>
     <Router>
         <Routes>
             <Route path = "/" element = {<HomePage/>}/>
@@ -15,5 +23,6 @@ export default function App(props) {
             <Route path = "/room/:roomCode" element = {<Room/>}/>
         </Routes>
     </Router>
+    </div>
   );
 }
