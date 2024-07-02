@@ -127,8 +127,6 @@ class LeaveRoom(APIView):
 class UpdateRoom(APIView):
     serializer_class = UpdateRoomSerializer
 
-    
-
     def patch(self, request, format = None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
@@ -138,8 +136,8 @@ class UpdateRoom(APIView):
         if serializer.is_valid():
             guest_can_pause = serializer.validated_data.get('guest_can_pause')
             votes_to_skip = serializer.validated_data.get('votes_to_skip')
-            room_code = serializer.validated.data.get('code')
-            queryset = Room.objects.filter(code = code)
+            room_code = serializer.data.get('code')
+            queryset = Room.objects.filter(code = room_code)
             if not queryset.exists():
                 return Response({"msg" : "Room not found"}, status = status.HTTP_404_NOT_FOUND)
 

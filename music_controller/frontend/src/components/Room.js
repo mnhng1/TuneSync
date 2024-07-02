@@ -3,8 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import {Grid, Button, Typography} from '@mui/material'
 import { Link } from "react-router-dom"
 import CreateRoomPage from './CreateRoomPage';
+import {Alert} from "@mui/material"
 
-export default function Room({clearRoomCode}) {
+export default function Room() {
     const { roomCode } = useParams();
     const [votesToSkip, setVotesToSkip] = useState(2);
     const [guestCanPause, setGuestCanPause] = useState(false);
@@ -56,7 +57,7 @@ export default function Room({clearRoomCode}) {
         };
 
         fetchData(); // Call fetchData when roomCode changes or on component mount
-    }, [roomCode]); // useEffect dependency: re-run fetchData when roomCode changes
+    }, [roomCode,showSetting, guestCanPause, votesToSkip]); // useEffect dependency: re-run fetchData when roomCode changes
 
 
     function leaveButtonPress() {
