@@ -11,8 +11,12 @@ export default function Room() {
     const [guestCanPause, setGuestCanPause] = useState(false);
     const [isHost, setIsHost] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
+    const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false)
     const navigate = useNavigate();
     
+    console.log(spotifyAuthenticated)
+    
+
     function updateShowSetting() {
         setShowSetting(prev => !prev)
     }
@@ -55,9 +59,24 @@ export default function Room() {
                 // Handle error state here if needed
             }
         };
-
+    
         fetchData(); // Call fetchData when roomCode changes or on component mount
-    }, [roomCode,showSetting, guestCanPause, votesToSkip]); // useEffect dependency: re-run fetchData when roomCode changes
+    
+        if (isHost) {
+            fetch('/spotify/is-authenticated')
+                .then((response) => response.json())
+                .then((data) => {
+                    setSpotifyAuthenticated(data.status)
+                    if (!data.status) {
+                        fetch('/spotify/get-auth-url')
+                            .then((response) => response.json())
+                            .then((data) => {
+                                window.location.replace(data.url);
+                            })
+                    }
+                })
+        }
+    }, [roomCode, showSetting, guestCanPause, votesToSkip, isHost]); 
 
 
     function leaveButtonPress() {
@@ -75,6 +94,8 @@ export default function Room() {
                 navigate("/");
             });
     }
+
+
 
 
     if (showSetting) {
