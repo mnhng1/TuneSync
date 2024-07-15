@@ -108,8 +108,6 @@ export default function Room() {
             }
         })
         .then((data) =>  setSong(data));
-       
-        
     }
 
     if (showSetting) {
