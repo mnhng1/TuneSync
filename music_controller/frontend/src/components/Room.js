@@ -12,9 +12,10 @@ export default function Room() {
     const [isHost, setIsHost] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
     const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false)
+    const [song, setSong] = useState({});
     const navigate = useNavigate();
     
-    console.log(spotifyAuthenticated)
+
     
 
     function updateShowSetting() {
@@ -61,6 +62,7 @@ export default function Room() {
         };
     
         fetchData(); // Call fetchData when roomCode changes or on component mount
+        getCurrentSong();
     
         if (isHost) {
             fetch('/spotify/is-authenticated')
@@ -96,7 +98,19 @@ export default function Room() {
     }
 
 
-
+    function getCurrentSong() {
+        fetch('/spotify/current-song')
+        .then((response) => {
+            if (!response.ok) {
+                return {};
+            } else {
+                return response.json();  // Added return statement here
+            }
+        })
+        .then((data) =>  setSong(data));
+       
+        
+    }
 
     if (showSetting) {
         return renderSetting();
@@ -107,18 +121,8 @@ export default function Room() {
                 <Typography variant='h4' component="h4">Code: {roomCode} </Typography>
             </Grid>
 
-            <Grid item xs = {12} align = "center">
-                <Typography variant='h6' component="h6">Votes: {votesToSkip} </Typography>
-            </Grid>
-
-            <Grid item xs = {12} align = "center">
-                <Typography variant='h6' component="h6">Guest Can Pause: {guestCanPause.toString()}</Typography>
-            </Grid>
-
-            <Grid item xs = {12} align = "center">
-                <Typography variant='h6' component="h6">Host: {isHost.toString()}</Typography>
-            </Grid>
-
+            
+            
             {isHost?renderSettingButton(): null}
             
             <Grid item xs = {12} align = "center"> 
