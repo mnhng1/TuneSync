@@ -18,6 +18,27 @@ module.exports = (env, argv) => {
             loader: "babel-loader",
           },
         },
+        {
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'assets/',
+                publicPath: '/static/frontend/assets/',
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
+        },
       ],
     },
     optimization: {

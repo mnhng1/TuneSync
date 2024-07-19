@@ -40,7 +40,7 @@ export default function HomePage(props) {
             .then((response) => response.json())
             .then((data) => {
                 if (data.code) {
-                    console.log(data.code)
+                    
                     setRoomCode(data.code);
                     navigate(`/room/${data.code}`);
                 }

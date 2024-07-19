@@ -21,3 +21,12 @@ html,  body{
     
 }
 
+
+.music-player-container {
+    max-width: 400px;
+    margin: 0 auto; /* Center the player horizontally */
+}
+
+.music-player-card {
+    height: auto;
+}

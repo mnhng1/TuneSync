@@ -56,8 +56,6 @@ def refresh_spotify_token(session_id):
     expires_in = response.get('expires_in')
 
     if expires_in is None:
-        # Handle the case where expires_in is not provided in the response
-        # You might want to log this or raise an exception
         raise ValueError("expires_in not provided in the Spotify API response")
 
     update_or_create_user_token(session_id, access_token, token_type, expires_in, refresh_token)
@@ -67,7 +65,7 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
     header = {'Content-Type':'application/json', 'Authorization': "Bearer " +  tokens.access_token}
 
     if post_:
-        post(BASE_URL + endpoit, headers = header)
+        post(BASE_URL + endpoint, headers = header)
     if put_:
         put(BASE_URL + endpoint, headers=header)
 
@@ -77,3 +75,13 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
         return response.json()
     except:
         return {'Error': 'Issue with request'}
+
+def play_song(session_id):
+    return execute_spotify_api_request(session_id, "player/play", put_=True)
+
+def pause_song(session_id):
+    return execute_spotify_api_request(session_id, "player/pause", put_=True)
+
+
+def skip_song(session_id):
+    return execute_spotify_api_request(session_id, "player/next", post_= True)
