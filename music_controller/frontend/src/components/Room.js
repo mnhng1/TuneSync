@@ -11,7 +11,7 @@ export default function Room() {
     const defaultSong = {
         title: "No song is currently playing",
         artist: "Unknown Artist",
-        image_url: spotifyImageURL,
+        image_url: "spotifyImageURL",
         is_playing: false,
         time: 0,
         duration: 1,

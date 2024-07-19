@@ -46,7 +46,7 @@ export default function MusicPlayer(props) {
                         <Typography color="textSecondary" variant="subtitle1">{props.artist}</Typography>
                         <div>
                             <IconButton onClick={props.is_playing ? pauseSong :playSong} >{props.is_playing ? <Pause /> : <PlayArrow />}</IconButton>
-                            <IconButton onClick ={skipsong}><SkipNext/></IconButton>
+                            <IconButton onClick ={skipsong}><SkipNext/>{"      "}{props.votes}/{" "}{props.votes_required}</IconButton>
                         </div>
                     </Grid>
                 </Grid>
