@@ -3,7 +3,7 @@ import { Card, IconButton, LinearProgress, Grid, Typography } from '@mui/materia
 import { PlayArrow, Pause, SkipNext } from '@mui/icons-material';
 
 export default function MusicPlayer(props) {
-    console.log('MusicPlayer Props:', props); // Debugging log
+    
     const songProgress = (props.time / props.duration) * 100;
 
     function pauseSong(){

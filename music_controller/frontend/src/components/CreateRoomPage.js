@@ -21,8 +21,6 @@ export default function CreateRoomPage(props) {
     guestCanPause = true,
     update = false,
     roomCode = null,
-    updateCallback = () => {},
-    
   } = props;
 
   const [statusMsg, setMsg] = useState("")
@@ -135,7 +133,7 @@ export default function CreateRoomPage(props) {
           </Grid>
           
         <Grid item xs={12} align="center">
-          <Typography component="h4" variant="h4">
+          <Typography component="h4" variant="h4" color = {"white"}>
             {title}
           </Typography>
         </Grid>
@@ -154,12 +152,14 @@ export default function CreateRoomPage(props) {
                 control={<Radio color="primary" />}
                 label="Play/Pause"
                 labelPlacement="bottom"
+                sx={{ '& .MuiFormControlLabel-label': { color: 'white' } }}
               />
               <FormControlLabel
                 value={false}
                 control={<Radio color="secondary" />}
                 label="No Control"
                 labelPlacement="bottom"
+                sx={{ '& .MuiFormControlLabel-label': { color: 'white' } }}
               />
             </RadioGroup>
           </FormControl>

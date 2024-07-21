@@ -14,7 +14,7 @@ function RenderHomePage() {
     return (
         <Grid container spacing={3} align="center" justifyContent="center">
             <Grid item xs={12} align="center" >
-                <Typography variant="h3" component="h3">
+                <Typography variant="h3" component="h3" color={'white'}>
                     House Party
                 </Typography>
             </Grid>

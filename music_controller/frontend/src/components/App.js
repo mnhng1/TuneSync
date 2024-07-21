@@ -4,16 +4,21 @@ import JoinRoomPage from "./JoinRoomPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme'; // Import the dark theme
 
 export default function App(props) {
   return (
+    <ThemeProvider theme={theme}>
     <div style={{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
       width:'100vw',
-      border: '2px solid red' 
+      
+      background: 'linear-gradient(90deg, #00001C 0%, #003366 100%)',
+     
     }}>
     <Router>
         <Routes>
@@ -24,5 +29,6 @@ export default function App(props) {
         </Routes>
     </Router>
     </div>
+    </ThemeProvider>
   );
 }

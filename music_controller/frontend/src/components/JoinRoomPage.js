@@ -42,12 +42,12 @@ export default function JoinRoomPage(props) {
         alignItems: "center",
         height: "100vh",
         width: "100vw",
-        border: "2px solid red", // Border for debugging
+       
       }}
     >
-      <Grid container spacing={1} justifyContent="center" alignItems="center">
+      <Grid container spacing={2}  justifyContent="center" alignItems="center">
         <Grid item xs={12} align="center">
-          <Typography variant="h4" component="h4">
+          <Typography variant="h4" component="h4" color = {"white"}>
             Join a room
           </Typography>
         </Grid>
