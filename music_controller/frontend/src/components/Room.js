@@ -135,10 +135,7 @@ export default function Room() {
         if (!response.ok) {
           setSong(defaultSong);
         } else {
-            
-            
             return response.text().then(text => text ? JSON.parse(text) : {});
-
         }
       })
       .then((data) => {

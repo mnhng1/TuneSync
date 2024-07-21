@@ -37,7 +37,7 @@ export default function MusicPlayer(props) {
     return (
         <div style={{ maxWidth: '400px', margin: '0 auto' }}>
             <Card sx={{ height: 'auto' }}>
-                <Grid container alignItems="center">
+                <Grid container alignItems="center" spacing={4}>
                     <Grid item align="center" xs={4}>
                         <img src={props.image_url} alt="album cover" height="100%" width="100%" />
                     </Grid>
