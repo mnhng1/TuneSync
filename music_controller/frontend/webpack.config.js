@@ -26,19 +26,12 @@ module.exports = (env, argv) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'assets/',
-                publicPath: '/static/frontend/assets/',
+                
               },
             },
           ],
         },
-        {
-          test: /\.(png|jpe?g|gif)$/i,
-          use: [
-            {
-              loader: 'file-loader',
-            },
-          ],
-        },
+        
       ],
     },
     optimization: {

@@ -126,11 +126,13 @@ export default function CreateRoomPage(props) {
     return (
 
         <Grid container spacing={2} justifyContent="center" alignItems="center"  >
-          <Grid item xs={12} align="center">
-            
-            <Collapse in={statusMsg}> <Alert severity={statusMsg === "Room update successfully" ? "success" : "error"}  onClose={() => setMsg("") }>  {statusMsg}</Alert> </Collapse>
-            
-          </Grid>
+          <Grid item xs={12} sx={{ position: 'absolute', top: 0, width: '100%' }}>
+            <Collapse in={statusMsg}> 
+                <Alert severity={statusMsg === "Room update successfully" ? "success" : "error"}  onClose={() => setMsg("") }>  
+                    {statusMsg}
+                </Alert> 
+            </Collapse>
+          </Grid>   
           
         <Grid item xs={12} align="center">
           <Typography component="h4" variant="h4" color = {"white"}>

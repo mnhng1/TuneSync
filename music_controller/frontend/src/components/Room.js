@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import CreateRoomPage from './CreateRoomPage';
 import MusicPlayer from './MusicPlayer';
 import theme from './theme';
-import logo from '../assets/spotify.png'
+import logo from '../assets/logo.jpg';
 const useStyles = {
   root: css({
     height: '100vh',
@@ -25,6 +25,13 @@ const useStyles = {
 export default function Room() {
   const classes = useStyles;
  
+  
+  const { roomCode } = useParams();
+  const [votesToSkip, setVotesToSkip] = useState(null);
+  const [guestCanPause, setGuestCanPause] = useState(false);
+  const [isHost, setIsHost] = useState(false);
+  const [showSetting, setShowSetting] = useState(false);
+  const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false);
   const defaultSong = {
     title: "No song is currently playing",
     artist: "Unknown Artist",
@@ -32,13 +39,10 @@ export default function Room() {
     is_playing: false,
     time: 0,
     duration: 1,
+    votes_required: votesToSkip,
+    votes: 0,
   };
-  const { roomCode } = useParams();
-  const [votesToSkip, setVotesToSkip] = useState(2);
-  const [guestCanPause, setGuestCanPause] = useState(false);
-  const [isHost, setIsHost] = useState(false);
-  const [showSetting, setShowSetting] = useState(false);
-  const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false);
+
   const [song, setSong] = useState(defaultSong);
   const navigate = useNavigate();
   const intervalRef = useRef(null);
@@ -102,7 +106,7 @@ export default function Room() {
           }
         });
     }
-
+    console.log(defaultSong.votes_required)
      // Cleanup interval on component unmount
   }, [roomCode, isHost]);
 
@@ -157,11 +161,12 @@ export default function Room() {
     return (
       <ThemeProvider theme={theme}>
         <div css={classes.root}>
-          <div css={classes.roomCode}>
-            <Typography variant="h6" component="div">Code: {roomCode}</Typography>
-          </div>
+          
+        
+          
           <Grid container spacing={1}>
-            <Grid item xs={12} align="center">
+          <Typography variant="h5" component="div" color={'white'} sx={{ color: 'white', position: 'absolute', top: 10, right: 20 } }>Room Code: {roomCode}</Typography>
+            <Grid item xs={12}  sx={{ display: 'flex', alignItems: 'center', margin: '0 20px' }}>
               <MusicPlayer {...song} />
             </Grid>
             {isHost && renderSettingButton()}

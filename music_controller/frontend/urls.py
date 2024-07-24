@@ -8,6 +8,8 @@ urlpatterns = [
     path('', index, name =''),
     path('create-room', index),
     path('join-room', index),
-    path('room/<str:roomCode>', index)
+    path('room/<str:roomCode>', index),
+    path('login', index)
+
 
 ]
