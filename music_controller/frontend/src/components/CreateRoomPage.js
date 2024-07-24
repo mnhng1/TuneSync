@@ -1,6 +1,7 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -13,6 +14,8 @@ import   { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {Collapse} from "@mui/material"
 import {Alert} from "@mui/material"
+import ytblogo from "../assets/youtubelogo.svg"
+import spotifylogo from "../assets/spotify.png"
 
 export default function CreateRoomPage(props) {
 
@@ -86,22 +89,38 @@ export default function CreateRoomPage(props) {
   };
     function renderCreateRoomButton ()  {
       return (
-        <Grid container spacing={1}>
-          <Grid item xs={12} align="center">
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={update?handleUpdateRoomButton:handleCreateRoomButton}
-            >
-              Create Room
-            </Button>
-          </Grid>
+        <Grid container spacing={2} alignItems={"center"} justifyContent={'center'}>
+          <Grid item  xs={12} align="center">
+                <Button onClick={update?handleUpdateRoomButton:handleCreateRoomButton} sx={{
+                    bgcolor: '#1DB954',
+                    boxShadow: 1,
+                    borderRadius: 2,
+                    mt: 2,
+                    color: 'white'
+                   
+                }}>Continue with Spotify
+                <img src={spotifylogo} alt="YouTube Logo" style={{marginLeft: '10px', marginRight: '5px', width: '20px', height: '20px' }} /></Button>
+                
+            </Grid>
+            
+            <Grid item xs={12} align="center">
+                <Button sx={{
+                    bgcolor: '#CC0000',
+                    boxShadow: 1,
+                    borderRadius: 2,
+                    color: 'white'
+                }}>Continue with Youtube Music
+                <img src={ytblogo} alt="YouTube Logo" style={{ marginLeft: '10px', marginRight: '5px', width: '20px', height: '20px' }} />
+                </Button>
+            </Grid>
           <Grid item xs={12} align="center">
             <Button color="secondary" variant="contained" to="/" component={Link}>
               Back
             </Button>
           </Grid>
       </Grid>
+      
+        
       )
     }
 
@@ -184,6 +203,7 @@ export default function CreateRoomPage(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
+        <br></br>
         {props.update? renderUpdateRoomButton(): renderCreateRoomButton()}
       </Grid>
       
