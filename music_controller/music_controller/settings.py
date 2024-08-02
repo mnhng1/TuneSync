@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'frontend.apps.FrontendConfig',
-    'spotify.apps.SpotifyConfig'
+    'spotify.apps.SpotifyConfig',
+    'channels',
+    'youtube.apps.Youtube.config'
+
 
 ]
 
@@ -52,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
 ]
 
 ROOT_URLCONF = 'music_controller.urls'
@@ -73,6 +78,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'music_controller.wsgi.application'
+ASGI_APPLICATION = 'music_controller.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 
 # Database

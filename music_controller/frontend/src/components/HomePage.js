@@ -15,7 +15,8 @@ function RenderHomePage() {
         <Grid container spacing={3} align="center" justifyContent="center">
             <Grid item xs={12} align="center" >
                 <Typography variant="h3" component="h3" color={'white'}>
-                    Collaborative Music Player
+                        TuneSync
+
                 </Typography>
             </Grid>
             <Grid item xs={12} align="center">

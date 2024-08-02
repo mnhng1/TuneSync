@@ -59,7 +59,7 @@ export default function CreateRoomPage(props) {
 
         fetch("/api/create-room", requestOptions)
             .then((response) => response.json())
-            .then((data) => navigate(`/room/${data.code}`))
+            .then((data) => {if (state=0) {navigate(`/room/${data.code}`)}})
             .catch((error) => console.error('Error:', error));
     };
 
