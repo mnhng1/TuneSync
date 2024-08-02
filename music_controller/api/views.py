@@ -75,6 +75,7 @@ class CreateRoomView(APIView):
             votes_to_skip = serializer.validated_data.get('votes_to_skip')
             code = serializer.validated_data.get('code', generate_unique_code())  # Use provided code or generate a new one
             host = self.request.session.session_key
+            platform = serializer.validated_data.get('platform', 'spotify')
 
             queryset = Room.objects.filter(host=host)
             if queryset.exists():

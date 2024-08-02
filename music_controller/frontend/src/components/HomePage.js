@@ -5,6 +5,7 @@ import { Grid, Button, ButtonGroup, Typography } from '@mui/material';
 import JoinRoomPage from "./JoinRoomPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
+import RoomYoutube from "./RoomYoutube";
 
 
 
@@ -56,7 +57,8 @@ export default function HomePage(props) {
             <Route exact path="/" element={roomCode? null: <RenderHomePage />}  />
             <Route path="/create-room" element={<CreateRoomPage />} />
             <Route path="/join-room" element={<JoinRoomPage />} />
-            <Route path="/room/:roomCode" element={<Room  />}  />
+            <Route path="/room/spotify/:roomCode" element={<Room/>}  />
+            <Route path = "/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
         </Routes>
     );
 }

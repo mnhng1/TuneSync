@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'spotify.apps.SpotifyConfig',
     'channels',
-    'youtube.apps.Youtube.config'
+    'youtube.apps.YoutubeConfig'
 
 
 ]

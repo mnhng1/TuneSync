@@ -31,7 +31,9 @@ export default function Room() {
   const [guestCanPause, setGuestCanPause] = useState(false);
   const [isHost, setIsHost] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
-  const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false);
+  
+  
+
   const defaultSong = {
     title: "No song is currently playing",
     artist: "Unknown Artist",

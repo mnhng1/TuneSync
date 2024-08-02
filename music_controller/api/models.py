@@ -19,6 +19,7 @@ class Room(models.Model):
     votes_to_skip = models.IntegerField(null = False, default =1)
     created_at = models.DateTimeField(auto_now_add=True) #Auto register time that the room was createds
     current_song = models.CharField(max_length=50, null = True)
+    platform = models.CharField(max_length=50, null = True) 
 
     
 

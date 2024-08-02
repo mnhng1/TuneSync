@@ -12,7 +12,7 @@ class CreateRoomSerializer(serializers.ModelSerializer):
     code = serializers.CharField(required=False)
     class Meta:
         model = Room
-        fields = ('guest_can_pause', 'code', 'votes_to_skip', 'created_at')
+        fields = ('guest_can_pause', 'code', 'votes_to_skip', 'created_at', 'platform')
 
 
 class UpdateRoomSerializer(serializers.ModelSerializer):

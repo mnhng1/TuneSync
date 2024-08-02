@@ -2,6 +2,7 @@ import React from "react";
 import HomePage from "./HomePage";
 import JoinRoomPage from "./JoinRoomPage";
 import CreateRoomPage from "./CreateRoomPage";
+import RoomYoutube from "./RoomYoutube";
 import Login from "./AuthenticationPage";
 import Room from "./Room";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -22,11 +23,12 @@ export default function App(props) {
      
     }}>
     <Router>
-        <Routes>
+        <Routes>ç
             <Route path = "/" element = {<HomePage/>}/>
             <Route path = "/create-room" element = {<CreateRoomPage/>}/>
             <Route path = "/join-room" element = {<JoinRoomPage/>}/>
-            <Route path = "/room/:roomCode" element = {<Room/>}/>
+            <Route path = "/room/spotify/:roomCode" element = {<Room/>}/>
+            <Route path = "/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
             <Route path = "/login" element = {<Login/>}/>
         </Routes>
     </Router>

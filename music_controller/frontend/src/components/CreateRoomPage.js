@@ -24,6 +24,7 @@ export default function CreateRoomPage(props) {
     guestCanPause = true,
     update = false,
     roomCode = null,
+  
   } = props;
 
   const [statusMsg, setMsg] = useState("")
@@ -36,6 +37,7 @@ export default function CreateRoomPage(props) {
     
     const [guestCanPauseState, setGuestCanPause] = useState(guestCanPause);
     const [votesToSkipState, setVotesToSkip] = useState(votesToSkip);
+    
     const navigate = useNavigate();
 
     const handleVotesChange = (e) => {
@@ -46,21 +48,28 @@ export default function CreateRoomPage(props) {
         setGuestCanPause(e.target.value);
     };
 
-    const handleCreateRoomButton = () => {
-        
+    const handleCreateRoomButton = (e) => {
+        let platform = e.currentTarget.value;
         const requestOptions = {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 votes_to_skip: votesToSkipState,
-                guest_can_pause: guestCanPauseState
+                guest_can_pause: guestCanPauseState,
+                platform: platform
             })
         };
-
+        if (platform == "spotify"){
         fetch("/api/create-room", requestOptions)
             .then((response) => response.json())
-            .then((data) => {if (state=0) {navigate(`/room/${data.code}`)}})
+            .then((data) => navigate(`/room/${data.code}`))
+            .catch((error) => console.error('Error:', error));}
+        if (platform == "youtube") {
+          fetch("/api/create-room", requestOptions)
+            .then((response) => response.json())
+            .then((data) => navigate(`/room/youtube/${data.code}`))
             .catch((error) => console.error('Error:', error));
+        }
     };
 
 
@@ -98,18 +107,18 @@ export default function CreateRoomPage(props) {
                     mt: 2,
                     color: 'white'
                    
-                }}>Continue with Spotify
+                }} value = "spotify">Continue with Spotify
                 <img src={spotifylogo} alt="YouTube Logo" style={{marginLeft: '10px', marginRight: '5px', width: '20px', height: '20px' }} /></Button>
                 
             </Grid>
             
             <Grid item xs={12} align="center">
-                <Button sx={{
+                <Button onClick={update?handleUpdateRoomButton:handleCreateRoomButton} sx={{
                     bgcolor: '#CC0000',
                     boxShadow: 1,
                     borderRadius: 2,
                     color: 'white'
-                }}>Continue with Youtube Music
+                }} value = "youtube">Continue with Youtube Music
                 <img src={ytblogo} alt="YouTube Logo" style={{ marginLeft: '10px', marginRight: '5px', width: '20px', height: '20px' }} />
                 </Button>
             </Grid>
