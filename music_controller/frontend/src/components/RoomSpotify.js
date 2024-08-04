@@ -22,7 +22,7 @@ const useStyles = {
   }),
 };
 
-export default function Room() {
+export default function RoomSpotify() {
   const classes = useStyles;
  
   

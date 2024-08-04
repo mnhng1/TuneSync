@@ -10,6 +10,30 @@ import logo from '../assets/logo.jpg';
 
 export default function RoomYoutube(){
     const { roomCode } = useParams();
+    const navigate = useNavigate();
+    const [votesToSkip, setVotesToSkip] = useState(null);
+    const [guestCanPause, setGuestCanPause] = useState(false);
+    const [isHost, setIsHost] = useState(false);
+    const [showSetting, setShowSetting] = useState(false);
+
+
+    function leaveButtonPress() {
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        };
+    
+        fetch('/api/leave-room', requestOptions)
+          .then(_response => {
+            navigate("/");
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            navigate("/");
+          });
+    
+      }
+
 
     useEffect( () => {
         const fetchData = async () => {
@@ -32,6 +56,10 @@ export default function RoomYoutube(){
 
     )
     return (
-        <h1> Youtube UI</h1>
+       <Grid container spacing={2}>
+        <Grid item xs={12} align="center">
+              <Button variant="contained" color="secondary" onClick={leaveButtonPress}>Leave Room</Button>
+            </Grid>
+       </Grid>
     )
 }

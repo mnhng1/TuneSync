@@ -62,7 +62,7 @@ export default function CreateRoomPage(props) {
         if (platform == "spotify"){
         fetch("/api/create-room", requestOptions)
             .then((response) => response.json())
-            .then((data) => navigate(`/room/${data.code}`))
+            .then((data) => navigate(`/room/spotify/${data.code}`))
             .catch((error) => console.error('Error:', error));}
         if (platform == "youtube") {
           fetch("/api/create-room", requestOptions)
