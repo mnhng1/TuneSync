@@ -118,7 +118,7 @@ function RenderHomePage() {
                         color: '#003366',
                         fontWeight: 'bold',
                         fontStyle: 'italic',
-                        borderTop: '2px solid #003366',
+                        
                         whiteSpace: 'pre-wrap',
                     }}
                 >
@@ -130,13 +130,13 @@ function RenderHomePage() {
                         fontStyle: 'italic',
                         textAlign: 'center',
                         borderTop: '2px solid #003366',
-                        backgroundImage: 'linear-gradient(90deg, #e7e3f4 10%, #00001C 100%)', // Gradient background
+                        backgroundImage: 'linear-gradient(90deg, #e7e3f4 100%, #00001C 0%)', // Gradient background
                         WebkitBackgroundClip: 'text', // For WebKit browsers
                         backgroundClip: 'text', // For other browsers
                         color: 'transparent', // Hide the text color
-                        padding: 2, // Add padding for better readability
-                        borderRadius: '4px', // Rounded corners for a modern look,
                         
+                        borderRadius: '4px', // Rounded corners for a modern look,
+                        paddingTop: 4,
                         whiteSpace: 'pre-wrap', // Ensure text wraps correctly
                         width: 'calc(100% - 32px)', // Adjust width if needed
                         mx: 'auto', // Center horizontally
@@ -146,7 +146,7 @@ function RenderHomePage() {
                         },
                     }}
                 >
-                    "Experience music like never before with TuneSync. Collaborate with friends to create and enjoy synchronized playlists, share music seamlessly, and elevate your listening experience together."
+                    "Experience music like never before with TuneSync. Collaborate with friends to create and enjoy synchronized playlists, share music seamlessly, and elevate your listening experience together with your own favorite music platforms."
                 </Typography>
                 </Box>
             </Box>

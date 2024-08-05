@@ -8,6 +8,7 @@ import theme from './theme';
 import logo from '../assets/logo.jpg';
 
 
+
 export default function RoomYoutube(){
     const { roomCode } = useParams();
     const navigate = useNavigate();
@@ -16,6 +17,13 @@ export default function RoomYoutube(){
     const [isHost, setIsHost] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
 
+    const chatSocket = new WebSocket(
+      'ws://'
+      + window.location.host
+      + 'ws/youtube/'
+      + roomCode
+      
+    );
 
     function leaveButtonPress() {
         const requestOptions = {
