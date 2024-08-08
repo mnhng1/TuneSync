@@ -246,7 +246,7 @@ export default function HomePage(props) {
                     console.log(data.code)
                     setRoomCode(data.code);
                     fetch('/api/get-room?code=' + data.code).then((response) => response.json()).then((data) => {data.platform ==="youtube" ?navigate(`/room/youtube/${data.code}`):navigate(`/room/spotify/${data.code}`)} )
-                    navigate(`/room/${data.code}`);
+                    
                 }
             })
             .catch((error) => {
@@ -260,7 +260,7 @@ export default function HomePage(props) {
             <Route path="/create-room" element={<CreateRoomPage />} />
             <Route path="/join-room" element={<JoinRoomPage />} />
             <Route path="/room/spotify/:roomCode" element={<RoomSpotify/>}  />
-            <Route path = "/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
+            <Route path = "/ws/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
         </Routes>
     );
 }

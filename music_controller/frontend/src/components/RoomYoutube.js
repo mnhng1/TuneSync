@@ -24,6 +24,7 @@ export default function RoomYoutube(props, message){
       + roomCode
     );
 
+    console.log(roomCode)
 
     function sendMessage(message) {
       return new Promise((resolve, reject) => {

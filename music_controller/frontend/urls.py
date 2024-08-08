@@ -9,7 +9,7 @@ urlpatterns = [
     path('create-room', index),
     path('join-room', index),
     path('room/spotify/<str:roomCode>', index),
-    path('room/youtube/<str:roomCode>', index),
+    path('ws/room/youtube/<str:roomCode>', index),
     path('login', index)
 
 

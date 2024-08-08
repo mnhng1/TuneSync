@@ -67,7 +67,7 @@ export default function CreateRoomPage(props) {
         if (platform == "youtube") {
           fetch("/api/create-room", requestOptions)
             .then((response) => response.json())
-            .then((data) => navigate(`/room/youtube/${data.code}`))
+            .then((data) => navigate(`/ws/room/youtube/${data.code}`))
             .catch((error) => console.error('Error:', error));
         }
     };

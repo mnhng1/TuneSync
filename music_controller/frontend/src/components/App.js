@@ -28,7 +28,7 @@ export default function App(props) {
             <Route path = "/create-room" element = {<CreateRoomPage/>}/>
             <Route path = "/join-room" element = {<JoinRoomPage/>}/>
             <Route path = "/room/spotify/:roomCode" element = {<RoomSpotify/>}/>
-            <Route path = "/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
+            <Route path = "/ws/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
             
         </Routes>
     </Router>
