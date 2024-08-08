@@ -1,7 +1,6 @@
-# routing.py
-from django.urls import path
+from django.urls import re_path
 from . import consumers
 
 websocket_urlpatterns = [
-    path('ws/youtube/<str:room_code>/', consumers.YouTubeConsumer.as_asgi()),
+    re_path(r'ws/room/youtube/(?P<room_code>\w+)/$', consumers.YoutubeConsumer.as_asgi()),
 ]

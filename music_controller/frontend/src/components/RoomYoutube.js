@@ -9,7 +9,7 @@ import logo from '../assets/logo.jpg';
 
 
 
-export default function RoomYoutube(){
+export default function RoomYoutube(props, message){
     const { roomCode } = useParams();
     const navigate = useNavigate();
     const [votesToSkip, setVotesToSkip] = useState(null);
@@ -20,10 +20,29 @@ export default function RoomYoutube(){
     const chatSocket = new WebSocket(
       'ws://'
       + window.location.host
-      + 'ws/youtube/'
+      + '/ws/room/youtube/'
       + roomCode
-      
     );
+
+
+    function sendMessage(message) {
+      return new Promise((resolve, reject) => {
+        chrome.runtime.sendMessage(EXTENSION_ID, message, function(response) {
+          if (chrome.runtime.lastError) {
+            reject(chrome.runtime.lastError);
+          } else {
+            resolve(response);
+          }
+        });
+      });
+    }
+    
+    async function searchVideos(query) {
+      return sendMessage({action: 'search', query: query});
+    }
+
+
+
 
     function leaveButtonPress() {
         const requestOptions = {

@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Tune Sync",
+    "version": "1.0",
+    "permissions": [
+      "tabs",
+      "*://www.youtube.com/*"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "externally_connectable": {
+      "matches": ["*://your-web-app-domain.com/*"]
+    }
+  }
+  
+  
