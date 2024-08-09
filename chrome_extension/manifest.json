@@ -1,24 +1,28 @@
 {
-    "manifest_version": 2,
-    "name": "Tune Sync",
+    "manifest_version": 3,
+    "name": "YouTube Playback Controller",
     "version": "1.0",
+    "description": "Control YouTube or YouTube Music playback from a popup or background script.",
     "permissions": [
       "tabs",
-      "*://www.youtube.com/*"
+      "activeTab",
+      "scripting"
     ],
     "background": {
-      "scripts": ["background.js"],
-      "persistent": false
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icons/icon.png"
     },
     "content_scripts": [
       {
-        "matches": ["*://www.youtube.com/*"],
+        "matches": ["https://www.youtube.com/*", "https://music.youtube.com/*"],
         "js": ["content.js"]
       }
     ],
-    "externally_connectable": {
-      "matches": ["*://your-web-app-domain.com/*"]
+    "icons": {
+      "48": "logo.png"
     }
   }
-  
   

@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'spotify.apps.SpotifyConfig',
     'channels',
     'youtube.apps.YoutubeConfig'
-
-
+    
 ]
 
 MIDDLEWARE = [

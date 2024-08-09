@@ -21,10 +21,10 @@ export default function RoomYoutube(props, message){
       'ws://'
       + window.location.host
       + '/ws/room/youtube/'
-      + roomCode
+      + roomCode 
     );
 
-    console.log(roomCode)
+    
 
     function sendMessage(message) {
       return new Promise((resolve, reject) => {
