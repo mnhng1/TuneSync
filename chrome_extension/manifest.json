@@ -12,8 +12,8 @@
       "service_worker": "background.js"
     },
     "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icons/icon.png"
+      "default_popup": "popup/popup.html",
+      "default_icon": "logo.png"
     },
     "content_scripts": [
       {
@@ -22,7 +22,7 @@
       }
     ],
     "icons": {
-      "48": "logo.png"
+      "128": "logo.png"
     }
   }
   
