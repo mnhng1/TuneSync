@@ -1,3 +1,6 @@
+
+
+
 function togglePlayback() {
     let video = document.querySelector('video');
     if (video) {

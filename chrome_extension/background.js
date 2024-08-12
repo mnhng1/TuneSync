@@ -7,6 +7,30 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
 });
 
+
+let socket;
+
+chrome.runtime.onInstalled.addListener(() => {
+    socket = new WebSocket("ws://127.0.0.1:8000/ws/youtube/room_name/");
+
+    socket.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        if (data.message === 'pause') {
+            // Logic to pause YouTube video
+        } else if (data.message === 'play') {
+            // Logic to play YouTube video
+        }
+    };
+jandojwnao
+    socket.onopen = function() {
+        console.log("WebSocket connection established");
+    };
+
+    socket.onclose = function() {
+        console.log("WebSocket connection closed");
+    };
+});
+
 // Placeholder for messages from the main app
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "playPause") {
