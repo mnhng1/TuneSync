@@ -5,30 +5,49 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             files: ['content.js']
         });
     }
+    if (tab.url && tab.url.includes('music.youtube.com')){
+        chrome.scripting.executeScript({
+            taget: {tabId: tabId},
+            files: ['content.js']
+        })
+    }
 });
 
 
 let socket;
+let roomCode;
+let roomCodePromise = new Promise((resolve) => {
+  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.type === 'roomCode') {
+      roomCode = request.value;
+      resolve();
+    }
+  });
+});
 
-chrome.runtime.onInstalled.addListener(() => {
-    socket = new WebSocket("ws://127.0.0.1:8000/ws/youtube/room_name/");
+//function to open websocket
+function openSocket(roomCode) {
+  if (roomCode) {
+  socket = new WebSocket(`ws://127.0.0.1:8000/ws/youtube/${roomCode}/`);
+  socket.onopen = function() {
+    console.log("Connection established");
+  };
 
-    socket.onmessage = function(event) {
-        const data = JSON.parse(event.data);
-        if (data.message === 'pause') {
-            // Logic to pause YouTube video
-        } else if (data.message === 'play') {
-            // Logic to play YouTube video
-        }
-    };
-jandojwnao
-    socket.onopen = function() {
-        console.log("WebSocket connection established");
-    };
+  socket.onmessage = function(e) {
+    const data = JSON.parse(e.data);
+    if (data.message === 'pause') {
+        // Logic to pause YouTube video
+    } else if (data.message === 'play') {
+        // Logic to play YouTube video
+    }
+    }
+  }}
+  
 
-    socket.onclose = function() {
-        console.log("WebSocket connection closed");
-    };
+//open websocket when clicked the extension
+chrome.browserAction.onClicked.addListener(function(tab) {
+  // Open the WebSocket connection when the user clicks the extension's browser action
+  openSocket(roomCode)
 });
 
 // Placeholder for messages from the main app

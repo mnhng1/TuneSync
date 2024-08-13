@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { Grid, Button, Typography, ThemeProvider } from '@mui/material';
 import { css } from '@emotion/react';
 import CreateRoomPage from './CreateRoomPage';
@@ -111,9 +111,12 @@ export default function RoomSpotify() {
     console.log(defaultSong.votes_required)
      // Cleanup interval on component unmount
   }, [roomCode, isHost]);
-
+const location = useLocation();
   useEffect(() => {
-    intervalRef.current = setInterval(getCurrentSong, 1000);
+    if (location.pathname === "/") {
+      clearInterval(intervalRef.current);
+    }
+    else {intervalRef.current = setInterval(getCurrentSong, 1000);}
     console.log(song)
     return () => clearInterval(intervalRef.current);
   }, [song])
