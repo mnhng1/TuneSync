@@ -42,13 +42,31 @@ function openSocket(roomCode) {
     }
     }
   }}
-  
+
+//function to send message to websocket
+
+function sendMessage(message) {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send(JSON.stringify(message));
+      } else {
+        console.log("WebSocket is not open. Ready state is: " + socket.readyState);
+      }
+}
 
 //open websocket when clicked the extension
 chrome.browserAction.onClicked.addListener(function(tab) {
   // Open the WebSocket connection when the user clicks the extension's browser action
   openSocket(roomCode)
 });
+
+
+//Receive video data from content.js and send video data to websocket
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.type === 'videoData') {
+      let videoData = request.value;
+      sendMessage(videoData);
+    }
+  });
 
 // Placeholder for messages from the main app
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

@@ -24,6 +24,10 @@ export default function RoomYoutube(props, message){
       + roomCode 
     );
 
+
+    //send roomcode to extension for websocket connection 
+    chrome.runtime.sendMessage('kmbpidpnhglinjeoljhdhgpegmcoadnm', {type: 'data', value: roomCode});
+
     
 
     function sendMessage(message) {
