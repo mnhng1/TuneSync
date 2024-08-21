@@ -34,24 +34,13 @@ export default function RoomYoutube(props, message){
 
     //send roomcode to extension for websocket connection 
     //
-
+    
+    window.postMessage({ roomCode: roomCode }, '*');
     
 
-    function sendMessage(message) {
-      return new Promise((resolve, reject) => {
-        chrome.runtime.sendMessage(EXTENSION_ID, message, function(response) {
-          if (chrome.runtime.lastError) {
-            reject(chrome.runtime.lastError);
-          } else {
-            resolve(response);
-          }
-        });
-      });
-    }
-    
-    async function searchVideos(query) {
-      return sendMessage({action: 'search', query: query});
-    }
+
+
+   
 
 
     const handlePlayPause = () => {
