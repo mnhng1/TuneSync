@@ -174,6 +174,50 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@mui/icons-material/PauseCircleFilled.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/PauseCircleFilled.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\"use client\";\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = void 0;\nvar _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ \"./node_modules/@mui/icons-material/utils/createSvgIcon.js\"));\nvar _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nvar _default = exports[\"default\"] = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)(\"path\", {\n  d: \"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m-1 14H9V8h2zm4 0h-2V8h2z\"\n}), 'PauseCircleFilled');\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/PauseCircleFilled.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/icons-material/PlayCircleFilledWhite.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/PlayCircleFilledWhite.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = void 0;\nvar React = _interopRequireWildcard(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ \"./node_modules/@mui/icons-material/utils/createSvgIcon.js\"));\nvar _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nfunction _getRequireWildcardCache(e) { if (\"function\" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }\nfunction _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || \"object\" != typeof e && \"function\" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if (\"default\" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }\nvar _default = exports[\"default\"] = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)(\"path\", {\n  transform: \"scale(0.5, 0.5)\",\n  d: \"M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 29V15l12 9-12 9z\"\n}), 'PlayCircleFilledWhite');\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/PlayCircleFilledWhite.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/icons-material/SkipNext.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@mui/icons-material/SkipNext.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\"use client\";\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = void 0;\nvar _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ \"./node_modules/@mui/icons-material/utils/createSvgIcon.js\"));\nvar _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nvar _default = exports[\"default\"] = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)(\"path\", {\n  d: \"m6 18 8.5-6L6 6zM16 6v12h2V6z\"\n}), 'SkipNext');\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/SkipNext.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/icons-material/SkipPrevious.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@mui/icons-material/SkipPrevious.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\"use client\";\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = void 0;\nvar _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ \"./node_modules/@mui/icons-material/utils/createSvgIcon.js\"));\nvar _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nvar _default = exports[\"default\"] = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)(\"path\", {\n  d: \"M6 6h2v12H6zm3.5 6 8.5 6V6z\"\n}), 'SkipPrevious');\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/SkipPrevious.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@mui/icons-material/esm/Pause.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@mui/icons-material/esm/Pause.js ***!
@@ -215,6 +259,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/createSvgIcon */ \"./node_modules/@mui/material/utils/createSvgIcon.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n\"use client\";\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_1__[\"default\"])( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(\"path\", {\n  d: \"M6 6h2v12H6zm3.5 6 8.5 6V6z\"\n}), 'SkipPrevious'));\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/esm/SkipPrevious.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/icons-material/utils/createSvgIcon.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@mui/icons-material/utils/createSvgIcon.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\n'use client';\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nObject.defineProperty(exports, \"default\", ({\n  enumerable: true,\n  get: function () {\n    return _utils.createSvgIcon;\n  }\n}));\nvar _utils = __webpack_require__(/*! @mui/material/utils */ \"./node_modules/@mui/material/utils/index.js\");\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/utils/createSvgIcon.js?");
 
 /***/ }),
 
@@ -1637,6 +1692,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@mui/material/utils/deprecatedPropType.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@mui/material/utils/deprecatedPropType.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_deprecatedPropType__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/deprecatedPropType */ \"./node_modules/@mui/utils/esm/deprecatedPropType/deprecatedPropType.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils_deprecatedPropType__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/deprecatedPropType.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@mui/material/utils/getScrollbarSize.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@mui/material/utils/getScrollbarSize.js ***!
@@ -1645,6 +1711,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_getScrollbarSize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/getScrollbarSize */ \"./node_modules/@mui/utils/esm/getScrollbarSize/getScrollbarSize.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils_getScrollbarSize__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/getScrollbarSize.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/utils/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@mui/material/utils/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   capitalize: () => (/* reexport safe */ _capitalize__WEBPACK_IMPORTED_MODULE_0__[\"default\"]),\n/* harmony export */   createChainedFunction: () => (/* reexport safe */ _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n/* harmony export */   createSvgIcon: () => (/* reexport safe */ _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__[\"default\"]),\n/* harmony export */   debounce: () => (/* reexport safe */ _debounce__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   deprecatedPropType: () => (/* reexport safe */ _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__[\"default\"]),\n/* harmony export */   isMuiElement: () => (/* reexport safe */ _isMuiElement__WEBPACK_IMPORTED_MODULE_5__[\"default\"]),\n/* harmony export */   ownerDocument: () => (/* reexport safe */ _ownerDocument__WEBPACK_IMPORTED_MODULE_6__[\"default\"]),\n/* harmony export */   ownerWindow: () => (/* reexport safe */ _ownerWindow__WEBPACK_IMPORTED_MODULE_7__[\"default\"]),\n/* harmony export */   requirePropFactory: () => (/* reexport safe */ _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__[\"default\"]),\n/* harmony export */   setRef: () => (/* reexport safe */ _setRef__WEBPACK_IMPORTED_MODULE_9__[\"default\"]),\n/* harmony export */   unstable_ClassNameGenerator: () => (/* binding */ unstable_ClassNameGenerator),\n/* harmony export */   unstable_useEnhancedEffect: () => (/* reexport safe */ _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__[\"default\"]),\n/* harmony export */   unstable_useId: () => (/* reexport safe */ _useId__WEBPACK_IMPORTED_MODULE_11__[\"default\"]),\n/* harmony export */   unsupportedProp: () => (/* reexport safe */ _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__[\"default\"]),\n/* harmony export */   useControlled: () => (/* reexport safe */ _useControlled__WEBPACK_IMPORTED_MODULE_13__[\"default\"]),\n/* harmony export */   useEventCallback: () => (/* reexport safe */ _useEventCallback__WEBPACK_IMPORTED_MODULE_14__[\"default\"]),\n/* harmony export */   useForkRef: () => (/* reexport safe */ _useForkRef__WEBPACK_IMPORTED_MODULE_15__[\"default\"]),\n/* harmony export */   useIsFocusVisible: () => (/* reexport safe */ _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js\");\n/* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./capitalize */ \"./node_modules/@mui/material/utils/capitalize.js\");\n/* harmony import */ var _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createChainedFunction */ \"./node_modules/@mui/material/utils/createChainedFunction.js\");\n/* harmony import */ var _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSvgIcon */ \"./node_modules/@mui/material/utils/createSvgIcon.js\");\n/* harmony import */ var _debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./debounce */ \"./node_modules/@mui/material/utils/debounce.js\");\n/* harmony import */ var _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./deprecatedPropType */ \"./node_modules/@mui/material/utils/deprecatedPropType.js\");\n/* harmony import */ var _isMuiElement__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isMuiElement */ \"./node_modules/@mui/material/utils/isMuiElement.js\");\n/* harmony import */ var _ownerDocument__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ownerDocument */ \"./node_modules/@mui/material/utils/ownerDocument.js\");\n/* harmony import */ var _ownerWindow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ownerWindow */ \"./node_modules/@mui/material/utils/ownerWindow.js\");\n/* harmony import */ var _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./requirePropFactory */ \"./node_modules/@mui/material/utils/requirePropFactory.js\");\n/* harmony import */ var _setRef__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setRef */ \"./node_modules/@mui/material/utils/setRef.js\");\n/* harmony import */ var _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./useEnhancedEffect */ \"./node_modules/@mui/material/utils/useEnhancedEffect.js\");\n/* harmony import */ var _useId__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./useId */ \"./node_modules/@mui/material/utils/useId.js\");\n/* harmony import */ var _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./unsupportedProp */ \"./node_modules/@mui/material/utils/unsupportedProp.js\");\n/* harmony import */ var _useControlled__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./useControlled */ \"./node_modules/@mui/material/utils/useControlled.js\");\n/* harmony import */ var _useEventCallback__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./useEventCallback */ \"./node_modules/@mui/material/utils/useEventCallback.js\");\n/* harmony import */ var _useForkRef__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./useForkRef */ \"./node_modules/@mui/material/utils/useForkRef.js\");\n/* harmony import */ var _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./useIsFocusVisible */ \"./node_modules/@mui/material/utils/useIsFocusVisible.js\");\n'use client';\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n// TODO: remove this export once ClassNameGenerator is stable\n// eslint-disable-next-line @typescript-eslint/naming-convention\nconst unstable_ClassNameGenerator = {\n  configure: generator => {\n    if (true) {\n      console.warn(['MUI: `ClassNameGenerator` import from `@mui/material/utils` is outdated and might cause unexpected issues.', '', \"You should use `import { unstable_ClassNameGenerator } from '@mui/material/className'` instead\", '', 'The detail of the issue: https://github.com/mui/material-ui/issues/30011#issuecomment-1024993401', '', 'The updated documentation: https://mui.com/guides/classname-generator/'].join('\\n'));\n    }\n    _mui_utils__WEBPACK_IMPORTED_MODULE_17__[\"default\"].configure(generator);\n  }\n};\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/index.js?");
 
 /***/ }),
 
@@ -1689,6 +1766,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_requirePropFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/requirePropFactory */ \"./node_modules/@mui/utils/esm/requirePropFactory/requirePropFactory.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils_requirePropFactory__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/requirePropFactory.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/utils/setRef.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@mui/material/utils/setRef.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_setRef__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/setRef */ \"./node_modules/@mui/utils/esm/setRef/setRef.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils_setRef__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/setRef.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/utils/unsupportedProp.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@mui/material/utils/unsupportedProp.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils/unsupportedProp */ \"./node_modules/@mui/utils/esm/unsupportedProp/unsupportedProp.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils_unsupportedProp__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/unsupportedProp.js?");
 
 /***/ }),
 
@@ -2385,6 +2484,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@mui/utils/esm/deprecatedPropType/deprecatedPropType.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@mui/utils/esm/deprecatedPropType/deprecatedPropType.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ deprecatedPropType)\n/* harmony export */ });\nfunction deprecatedPropType(validator, reason) {\n  if (false) {}\n  return (props, propName, componentName, location, propFullName) => {\n    const componentNameSafe = componentName || '<<anonymous>>';\n    const propFullNameSafe = propFullName || propName;\n    if (typeof props[propName] !== 'undefined') {\n      return new Error(`The ${location} \\`${propFullNameSafe}\\` of ` + `\\`${componentNameSafe}\\` is deprecated. ${reason}`);\n    }\n    return null;\n  };\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/deprecatedPropType/deprecatedPropType.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@mui/utils/esm/elementAcceptingRef/elementAcceptingRef.js":
 /*!********************************************************************************!*\
   !*** ./node_modules/@mui/utils/esm/elementAcceptingRef/elementAcceptingRef.js ***!
@@ -2638,6 +2748,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./node_modules/@mui/utils/esm/unsupportedProp/unsupportedProp.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@mui/utils/esm/unsupportedProp/unsupportedProp.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ unsupportedProp)\n/* harmony export */ });\nfunction unsupportedProp(props, propName, componentName, location, propFullName) {\n  if (false) {}\n  const propFullNameSafe = propFullName || propName;\n  if (typeof props[propName] !== 'undefined') {\n    return new Error(`The prop \\`${propFullNameSafe}\\` is not supported. Please remove it.`);\n  }\n  return null;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/unsupportedProp/unsupportedProp.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@mui/utils/esm/useControlled/useControlled.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@mui/utils/esm/useControlled/useControlled.js ***!
@@ -2832,7 +2953,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ RoomYoutube)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/dist/index.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Grid/Grid.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Button/Button.js\");\n/* harmony import */ var _CreateRoomPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateRoomPage */ \"./src/components/CreateRoomPage.js\");\n/* harmony import */ var _MusicPlayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MusicPlayer */ \"./src/components/MusicPlayer.js\");\n/* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ \"./src/components/theme.js\");\n/* harmony import */ var _assets_logo_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/logo.jpg */ \"./src/assets/logo.jpg\");\n\n\n\n\n\n\n\n\nfunction RoomYoutube(props, message) {\n  const {\n    roomCode\n  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();\n  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();\n  const [votesToSkip, setVotesToSkip] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);\n  const [guestCanPause, setGuestCanPause] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [isHost, setIsHost] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [showSetting, setShowSetting] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/room/youtube/' + roomCode);\n  function sendMessage(message) {\n    return new Promise((resolve, reject) => {\n      chrome.runtime.sendMessage(EXTENSION_ID, message, function (response) {\n        if (chrome.runtime.lastError) {\n          reject(chrome.runtime.lastError);\n        } else {\n          resolve(response);\n        }\n      });\n    });\n  }\n  async function searchVideos(query) {\n    return sendMessage({\n      action: 'search',\n      query: query\n    });\n  }\n  function leaveButtonPress() {\n    const requestOptions = {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\"\n      }\n    };\n    fetch('/api/leave-room', requestOptions).then(_response => {\n      navigate(\"/\");\n    }).catch(error => {\n      console.error('Error:', error);\n      navigate(\"/\");\n    });\n  }\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    const fetchData = async () => {\n      try {\n        const response = await fetch('/api/get-room?code=' + roomCode);\n        if (!response.ok) {\n          throw new Error('Network response was not ok');\n        }\n        const roomData = await response.json();\n        setVotesToSkip(roomData.votes_to_skip);\n        setGuestCanPause(roomData.guest_can_pause);\n        setIsHost(roomData.is_host);\n      } catch (error) {\n        console.error('Error fetching room details:', error);\n        navigate(\"/\");\n      }\n    };\n    fetchData();\n  });\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    container: true,\n    spacing: 2\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    item: true,\n    xs: 12,\n    align: \"center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"contained\",\n    color: \"secondary\",\n    onClick: leaveButtonPress\n  }, \"Leave Room\")));\n}\n\n//# sourceURL=webpack://frontend/./src/components/RoomYoutube.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ RoomYoutube)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/dist/index.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Typography/Typography.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Button/Button.js\");\n/* harmony import */ var _CreateRoomPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateRoomPage */ \"./src/components/CreateRoomPage.js\");\n/* harmony import */ var _MusicPlayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MusicPlayer */ \"./src/components/MusicPlayer.js\");\n/* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme */ \"./src/components/theme.js\");\n/* harmony import */ var _assets_logo_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/logo.jpg */ \"./src/assets/logo.jpg\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/Box/Box.js\");\n/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ \"./node_modules/@mui/material/IconButton/IconButton.js\");\n/* harmony import */ var _mui_icons_material_PlayCircleFilledWhite__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/icons-material/PlayCircleFilledWhite */ \"./node_modules/@mui/icons-material/PlayCircleFilledWhite.js\");\n/* harmony import */ var _mui_icons_material_PauseCircleFilled__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/PauseCircleFilled */ \"./node_modules/@mui/icons-material/PauseCircleFilled.js\");\n/* harmony import */ var _mui_icons_material_SkipNext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/icons-material/SkipNext */ \"./node_modules/@mui/icons-material/SkipNext.js\");\n/* harmony import */ var _mui_icons_material_SkipPrevious__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/SkipPrevious */ \"./node_modules/@mui/icons-material/SkipPrevious.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\nfunction RoomYoutube(props, message) {\n  const {\n    roomCode\n  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();\n  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();\n  const [isPlaying, setIsPlaying] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [votesToSkip, setVotesToSkip] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);\n  const [guestCanPause, setGuestCanPause] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [isHost, setIsHost] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const [showSetting, setShowSetting] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);\n  const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/room/youtube/' + roomCode);\n\n  //send roomcode to extension for websocket connection \n  //\n\n  function sendMessage(message) {\n    return new Promise((resolve, reject) => {\n      chrome.runtime.sendMessage(EXTENSION_ID, message, function (response) {\n        if (chrome.runtime.lastError) {\n          reject(chrome.runtime.lastError);\n        } else {\n          resolve(response);\n        }\n      });\n    });\n  }\n  async function searchVideos(query) {\n    return sendMessage({\n      action: 'search',\n      query: query\n    });\n  }\n  const handlePlayPause = () => {\n    setIsPlaying(!isPlaying);\n    // Handle play/pause logic here, e.g., send WebSocket message\n  };\n  function leaveButtonPress() {\n    const requestOptions = {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\"\n      }\n    };\n    fetch('/api/leave-room', requestOptions).then(_response => {\n      navigate(\"/\");\n    }).catch(error => {\n      console.error('Error:', error);\n      navigate(\"/\");\n    });\n  }\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {\n    const fetchData = async () => {\n      try {\n        const response = await fetch('/api/get-room?code=' + roomCode);\n        if (!response.ok) {\n          throw new Error('Network response was not ok');\n        }\n        const roomData = await response.json();\n        setVotesToSkip(roomData.votes_to_skip);\n        setGuestCanPause(roomData.guest_can_pause);\n        setIsHost(roomData.is_host);\n      } catch (error) {\n        console.error('Error fetching room details:', error);\n        navigate(\"/\");\n      }\n    };\n    fetchData();\n  });\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    sx: {\n      display: 'flex',\n      alignItems: 'center',\n      justifyContent: 'center',\n      flexDirection: 'column',\n      backgroundColor: '#181818',\n      color: 'white',\n      p: 3,\n      borderRadius: 2,\n      maxWidth: 300,\n      mx: 'auto'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"h6\",\n    gutterBottom: true\n  }, \"Now Playing\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"body1\",\n    gutterBottom: true\n  }, \"Song Title - Artist Name\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    sx: {\n      display: 'flex',\n      alignItems: 'center'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n    onClick: () => {/* Handle previous track logic */}\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_SkipPrevious__WEBPACK_IMPORTED_MODULE_9__[\"default\"], {\n    sx: {\n      color: 'white',\n      fontSize: 40\n    }\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n    onClick: handlePlayPause\n  }, isPlaying ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_PauseCircleFilled__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    sx: {\n      color: 'white',\n      fontSize: 60\n    }\n  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_PlayCircleFilledWhite__WEBPACK_IMPORTED_MODULE_11__[\"default\"], {\n    sx: {\n      color: 'white',\n      fontSize: 60\n    }\n  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n    onClick: () => {/* Handle next track logic */}\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_SkipNext__WEBPACK_IMPORTED_MODULE_12__[\"default\"], {\n    sx: {\n      color: 'white',\n      fontSize: 40\n    }\n  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_13__[\"default\"], {\n    variant: \"contained\",\n    color: \"secondary\",\n    onClick: leaveButtonPress\n  }, \"Leave Room\"));\n}\n\n//# sourceURL=webpack://frontend/./src/components/RoomYoutube.js?");
 
 /***/ }),
 

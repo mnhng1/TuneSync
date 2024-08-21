@@ -6,12 +6,19 @@ import CreateRoomPage from './CreateRoomPage';
 import MusicPlayer from './MusicPlayer';
 import theme from './theme';
 import logo from '../assets/logo.jpg';
+import { IconButton, Box } from '@mui/material';
+import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import PauseCircleFilledIcon from '@mui/icons-material/PauseCircleFilled';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+
 
 
 
 export default function RoomYoutube(props, message){
     const { roomCode } = useParams();
     const navigate = useNavigate();
+    const [isPlaying, setIsPlaying] = useState(false)
     const [votesToSkip, setVotesToSkip] = useState(null);
     const [guestCanPause, setGuestCanPause] = useState(false);
     const [isHost, setIsHost] = useState(false);
@@ -26,7 +33,7 @@ export default function RoomYoutube(props, message){
 
 
     //send roomcode to extension for websocket connection 
-    chrome.runtime.sendMessage('kmbpidpnhglinjeoljhdhgpegmcoadnm', {type: 'data', value: roomCode});
+    //
 
     
 
@@ -47,7 +54,10 @@ export default function RoomYoutube(props, message){
     }
 
 
-
+    const handlePlayPause = () => {
+      setIsPlaying(!isPlaying);
+      // Handle play/pause logic here, e.g., send WebSocket message
+  };
 
     function leaveButtonPress() {
         const requestOptions = {
@@ -88,10 +98,55 @@ export default function RoomYoutube(props, message){
 
     )
     return (
-       <Grid container spacing={2}>
-        <Grid item xs={12} align="center">
-              <Button variant="contained" color="secondary" onClick={leaveButtonPress}>Leave Room</Button>
-            </Grid>
-       </Grid>
-    )
+       
+      
+        <Box 
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                backgroundColor: '#181818',
+                color: 'white',
+                p: 3,
+                borderRadius: 2,
+                maxWidth: 300,
+                mx: 'auto',
+            }}
+        >
+            <Typography variant="h6" gutterBottom>
+                Now Playing
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+                Song Title - Artist Name
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <IconButton onClick={() => { /* Handle previous track logic */ }}>
+                    <SkipPreviousIcon sx={{ color: 'white', fontSize: 40 }} />
+                </IconButton>
+                <IconButton onClick={handlePlayPause}>
+                    {isPlaying ? (
+                        <PauseCircleFilledIcon sx={{ color: 'white', fontSize: 60 }} />
+                    ) : (
+                        <PlayCircleFilledWhiteIcon sx={{ color: 'white', fontSize: 60 }} />
+                    )}
+                </IconButton>
+                <IconButton onClick={() => { /* Handle next track logic */ }}>
+                    <SkipNextIcon sx={{ color: 'white', fontSize: 40 }} />
+                </IconButton>
+                
+            </Box>
+            <Button variant="contained" color="secondary" onClick={leaveButtonPress}>Leave Room</Button>
+        </Box>
+        
+        
+        
+    );
+              
+            
+
+          
+            
+       
+    
 }

@@ -1,29 +1,42 @@
 {
     "manifest_version": 3,
-    "name": "YouTube Playback Controller",
+    "name": "YouTube Controller",
     "version": "1.0",
-    "description": "Control YouTube or YouTube Music playback from a popup or background script.",
-    "permissions": [
-      "tabs",
-      "activeTab",
-      "scripting"
-      
-    ],
+    "description": "A Chrome extension to control YouTube playback from a web app.",
     "background": {
       "service_worker": "background.js"
     },
+    "permissions": [
+      "tabs",
+      "scripting",
+      "storage",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "https://www.youtube.com/*",
+      "https://music.youtube.com/*"
+    ],
     "action": {
       "default_popup": "popup/popup.html",
-      "default_icon": "logo.png"
+      "default_icon": {
+        "16": "logo.png",
+        "48": "logo.png",
+        "128": "logo.png"
+      }
+    },
+    "icons": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
     },
     "content_scripts": [
       {
-        "matches": ["https://www.youtube.com/*", "https://music.youtube.com/*"],
+        "matches": [
+          "https://www.youtube.com/*",
+          "https://music.youtube.com/*"
+        ],
         "js": ["content.js"]
       }
-    ],
-    "icons": {
-      "128": "logo.png"
-    }
+    ]
   }
   

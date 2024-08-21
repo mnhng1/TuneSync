@@ -1,37 +1,22 @@
+// Function to execute a command on the YouTube player
+function controlYouTubePlayback(command) {
+    const video = document.querySelector('video');
+    if (!video) return;
 
-
-
-function getYouTubeVideoData(){
-    let video = document.querySelector('video');
-    let title = document.querySelector('.title.style-scope.ytd-video-primary-info-renderer').innerText;
-    let thumbnailUrl = document.querySelector('.ytp-cued-thumbnail-overlay-image').style.backgroundImage.slice(5, -2);
-    let currentTime = videoElement.currentTime;
-    let state = videoElement.paused ? 'paused' : 'playing';
-    return {title, thumbnailUrl, currentTime, state};
-}
-
-chrome.runtime.sendMessage('kmbpidpnhglinjeoljhdhgpegmcoadnm', {type: 'videoData', value: getYouTubeVideoData()});
-
-function togglePlayback() {
-    let video = document.querySelector('video');
-    if (video) {
-        if (video.paused) {
+    switch (command) {
+        case 'play':
             video.play();
-        } else {
+            break;
+        case 'pause':
             video.pause();
-        }
+            break;
+        // Add more controls like 'next', 'previous', etc.
     }
 }
 
-function nextTrack() {
-    let nextButton = document.querySelector('.ytp-next-button');
-    if (nextButton) {
-        nextButton.click();
+// Listen for messages from the background script
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.command) {
+        controlYouTubePlayback(request.command);
     }
-}
-
-function queuePlaylist(playlistUrl) {
-    // Logic to queue the playlist
-    window.location.href = playlistUrl;
-    // Optionally, you could add further logic to ensure the playlist starts playing automatically.
-}
+});
