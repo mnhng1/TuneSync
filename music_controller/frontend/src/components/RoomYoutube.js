@@ -31,12 +31,16 @@ export default function RoomYoutube(props, message){
       + roomCode 
     );
 
+    chatSocket.onopen = () => {
+      socket.send("Hello from the frontendt!");
+    }
+    
 
-    //send roomcode to extension for websocket connection 
-    //
+
     
-    window.postMessage({ roomCode: roomCode }, '*');
     
+    
+
 
 
 
@@ -83,9 +87,14 @@ export default function RoomYoutube(props, message){
             }
           };
           fetchData();
-    }
+          console.log('Sending room code to extension:', roomCode);
+          
+          window.postMessage({ roomCode: roomCode }, '*');
+    }, []);
 
-    )
+
+    
+    
     return (
        
       

@@ -11,11 +11,17 @@
       "scripting",
       "storage",
       "activeTab"
+      
     ],
+    
     "host_permissions": [
       "https://www.youtube.com/*",
-      "https://music.youtube.com/*"
+      "https://music.youtube.com/*",
+      "http://127.0.0.1:8000/*"
     ],
+    "externally_connectable": {
+        "matches": ["*://localhost/*"]
+    },
     "action": {
       "default_popup": "popup/popup.html",
       "default_icon": {
@@ -31,10 +37,7 @@
     },
     "content_scripts": [
       {
-        "matches": [
-          "https://www.youtube.com/*",
-          "https://music.youtube.com/*"
-        ],
+        "matches": ["<all_urls>"],
         "js": ["content.js"]
       }
     ]

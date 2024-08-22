@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-23al)kne2osydyc+k%!%w*%59kxxfzgo=4wnt+17id(zr8lk(s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'api.apps.ApiConfig',
     'rest_framework',
     'frontend.apps.FrontendConfig',
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,7 +62,36 @@ MIDDLEWARE = [
 
 ]
 
+# settings.py
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
+
 ROOT_URLCONF = 'music_controller.urls'
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "chrome-extension://kmbpidpnhglinjeoljhdhgpegmcoadnm",
+    "ws://127.0.0.1:8000",
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https?://.*\..*"
+]
+
+CHANNELS_ALLOWED_ORIGINS = ["*"]
 
 TEMPLATES = [
     {

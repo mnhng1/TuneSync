@@ -10,33 +10,39 @@ function getYouTubeVideoData() {
     return { title, thumbnailUrl, currentTime, state };
 }
 
-// Listen for messages from the web page
-window.addEventListener('message', function(event) {
-  // If the message contains a 'roomCode'
-  if ('roomCode' in event.data) {
-    // Send the room code to the background script
-    chrome.runtime.sendMessage({ roomCode: event.data.roomCode });
-  }
+
+
+window.addEventListener('message', async function(event) {
+    if (event.source !== window) return; // Only accept messages from the same window
+    
+    if (event.data && event.data.roomCode) {
+        console.log('Received room code from frontend:', event.data.roomCode);
+        function connectWebSocket(roomCode) {
+            socket = new WebSocket(`ws://127.0.0.1:8000/ws/room/youtube/${roomCode}/`);
+            
+            socket.onopen = function() {
+                console.log("WebSocket connection established.");
+                socket.send("Hello from the extension!");
+            };
+        
+            socket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                console.log("Received message: ", data);
+        
+                
+        
+            socket.onclose = function(event) {
+                console.log("WebSocket connection closed: ", event);
+            };
+        
+            socket.onerror = function(error) {
+                console.error("WebSocket error: ", error);
+            };
+        }}
+        connectWebSocket(event.data.roomCode)        
+        chrome.runtime.sendMessage({ roomCode: event.data.roomCode });
+    } else{
+        return}
 });
 
 
-
-socket.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-    if (data.action === 'play') {
-        document.querySelector('video')?.play();
-    } else if (data.action === 'pause') {
-        document.querySelector('video')?.pause();
-    } else if (data.action === 'next') {
-        document.querySelector('.ytp-next-button')?.click();
-    }
-    // Handle other actions
-};
-
-// Periodically send video data to the Django backend
-setInterval(() => {
-    const videoData = getYouTubeVideoData();
-    if (videoData) {
-        sendVideoDataToWebSocket(videoData);
-    }
-}, 5000);
