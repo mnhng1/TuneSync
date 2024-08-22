@@ -64,19 +64,7 @@ MIDDLEWARE = [
 
 # settings.py
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'root': {
-        'handlers': ['console'],
-        'level': 'DEBUG',
-    },
-}
+
 
 ROOT_URLCONF = 'music_controller.urls'
 

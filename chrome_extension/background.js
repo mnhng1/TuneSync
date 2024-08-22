@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log(request)
     if ('roomCode' in request) {
         console.log('Received room code from frontend:', request.roomCode);
-        connectWebSocket(request.roomCode);
+        
         
     }
 });

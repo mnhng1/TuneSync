@@ -16,31 +16,32 @@ window.addEventListener('message', async function(event) {
     if (event.source !== window) return; // Only accept messages from the same window
     
     if (event.data && event.data.roomCode) {
-        console.log('Received room code from frontend:', event.data.roomCode);
-        function connectWebSocket(roomCode) {
-            socket = new WebSocket(`ws://127.0.0.1:8000/ws/room/youtube/${roomCode}/`);
+
+        console.log('Received room code from extension:', event.data.roomCode);
+        socket = new WebSocket(`ws://127.0.0.1:8000/ws/room/youtube/${event.data.roomCode}`);
+        
+        socket.onopen = function() {
+            console.log("WebSocket connection established.");
+            socket.send(JSON.stringify({message: "Hello from the extension!"}));
+        };
+    
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            console.log("Received message: ", data);
+        }
             
-            socket.onopen = function() {
-                console.log("WebSocket connection established.");
-                socket.send("Hello from the extension!");
-            };
+    
+        socket.onclose = function(event) {
+            console.log("WebSocket connection closed: ", event);
+        };
+    
+        socket.onerror = function(error) {
+            console.error("WebSocket error: ", error);
+        };
         
-            socket.onmessage = function(event) {
-                const data = JSON.parse(event.data);
-                console.log("Received message: ", data);
+         
         
-                
         
-            socket.onclose = function(event) {
-                console.log("WebSocket connection closed: ", event);
-            };
-        
-            socket.onerror = function(error) {
-                console.error("WebSocket error: ", error);
-            };
-        }}
-        connectWebSocket(event.data.roomCode)        
-        chrome.runtime.sendMessage({ roomCode: event.data.roomCode });
     } else{
         return}
 });

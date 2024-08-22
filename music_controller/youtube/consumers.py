@@ -19,21 +19,25 @@ class YoutubeConsumer(AsyncWebsocketConsumer):
             logger.error(f"Connection failed: {str(e)}")
             await self.close(code=4000)
     async def disconnect(self, close_code):
-        async def disconnect(self, close_code):
-            logger.info(f"Disconnected with code: {close_code}")
-            await self.channel_layer.group_discard(self.room_code, self.channel_name)
+        
+        logger.info(f"Disconnected with code: {close_code}")
+        await self.channel_layer.group_discard(self.room_code, self.channel_name)
 
     async def receive(self, text_data):
-        data = json.loads(text_data)
+        def is_json(myjson):
+            try:
+                json_object = json.loads(myjson)
+            except ValueError as e:
+                return False
+            return True
 
-        if 'action' in data:
-            await self.channel_layer.group_send(
-                self.room_code,
-                {
-                    'type': 'control_video',
-                    'action': data['action'],
-                }
-            )
+        if text_data and is_json(text_data):
+            data = json.loads(text_data)
+            print("Received data is valid JSON", text_data)
+        else:
+            print("Received data is not valid JSON", text_data)
+        
+        
     async def websocket_disconnect(self, close_code):
         try:
             # Call the superclass's disconnect method

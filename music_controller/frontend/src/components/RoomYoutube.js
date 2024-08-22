@@ -32,7 +32,7 @@ export default function RoomYoutube(props, message){
     );
 
     chatSocket.onopen = () => {
-      socket.send("Hello from the frontendt!");
+      chatSocket.send("Hello from the frontendt!");
     }
     
 
