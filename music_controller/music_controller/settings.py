@@ -69,11 +69,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'music_controller.urls'
 
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
-    "chrome-extension://kmbpidpnhglinjeoljhdhgpegmcoadnm",
-    "ws://127.0.0.1:8000",
-]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https?://.*\..*"
