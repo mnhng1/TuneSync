@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from corsheaders.defaults import default_headers
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +29,7 @@ SECRET_KEY = 'django-insecure-23al)kne2osydyc+k%!%w*%59kxxfzgo=4wnt+17id(zr8lk(s
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://www.youtube.com','chrome-extension://kmbpidpnhglinjeoljhdhgpegmcoadnm' ]
 
 
 # Application definition
@@ -70,13 +73,7 @@ ROOT_URLCONF = 'music_controller.urls'
 
 
 
-CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https?://.*\..*"
-]
-
-CHANNELS_ALLOWED_ORIGINS = ["*"]
 
 TEMPLATES = [
     {
@@ -93,6 +90,13 @@ TEMPLATES = [
         },
     },
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True  # This allows all origins. For production, you should specify exact origins.
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'sec-websocket-protocol',
+]
+
 
 WSGI_APPLICATION = 'music_controller.wsgi.application'
 ASGI_APPLICATION = 'music_controller.asgi.application'

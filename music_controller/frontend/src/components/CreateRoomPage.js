@@ -49,6 +49,7 @@ export default function CreateRoomPage(props) {
     };
 
     const handleCreateRoomButton = (e) => {
+        
         let platform = e.currentTarget.value;
         const requestOptions = {
             method: "POST",

@@ -7,6 +7,9 @@ from rest_framework.response import Response
 from django.http import JsonResponse
 import string 
 import random
+from django.views.decorators.csrf import csrf_exempt
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 # Create your views here.
 
 
@@ -25,26 +28,35 @@ class RoomView(generics.ListAPIView):
 class JoinRoom(APIView):
     
     lookup_url_kwarg = 'code'
+    
+
     def post(self, request, format = None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
         code = request.data.get(self.lookup_url_kwarg)
+       
         if code!= None:
             room = Room.objects.filter(code=code).first()
+            
             if room is not None:
                 self.request.session['room_code'] = code
-                return Response({'message': 'Room Joined!'}, status = status.HTTP_200_OK)
+                self.request.session['platform'] = room.platform
+                return Response({'message': 'Room Joined!', 'platform': room.platform}, status = status.HTTP_200_OK)
             return Response({"Bad Request": "Invalid Room Code"}, status = status.HTTP_400_BAD_REQUEST)
         return Response({"Bad Request": "Invalid post data, did not find a code key"}, status = status.HTTP_400_BAD_REQUEST)
 
 class GetRoom(APIView):
     serializer_class = RoomSerializer
     lookup_url_kwarg = 'code'
+    lookup_url_platform = 'platform'
+    
 
     def get(self, request, format=None):
         code = request.GET.get(self.lookup_url_kwarg)
+        platform = request.GET.get(self.lookup_url_platform)
+        print(code, platform)
         if code is not None:
-            room = Room.objects.filter(code=code).first()
+            room = Room.objects.filter(code=code, platform = platform).first()
             if room is not None:
                 data = RoomSerializer(room).data
                 data['is_host'] = self.request.session.session_key == room.host
@@ -75,9 +87,9 @@ class CreateRoomView(APIView):
             votes_to_skip = serializer.validated_data.get('votes_to_skip')
             code = serializer.validated_data.get('code', generate_unique_code())  # Use provided code or generate a new one
             host = self.request.session.session_key
-            platform = serializer.validated_data.get('platform', 'spotify')
-
+            platform = serializer.validated_data.get('platform')
             queryset = Room.objects.filter(host=host)
+
             if queryset.exists():
                 room = queryset[0]
                 room.guest_can_pause = guest_can_pause
@@ -85,11 +97,12 @@ class CreateRoomView(APIView):
                 room.code = code  # Ensure the code is set properly
                 room.save(update_fields=['guest_can_pause', 'votes_to_skip', 'code'])
             else:
-                room = Room(host=host, guest_can_pause=guest_can_pause, votes_to_skip=votes_to_skip, code=code)
+                room = Room(host=host, guest_can_pause=guest_can_pause, votes_to_skip=votes_to_skip, code=code, platform=platform)
                 room.save()
 
             # Set the room_code in the session
             self.request.session['room_code'] = code
+            self.request.session['platform'] = platform
             self.request.session.save()
 
             return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
@@ -113,16 +126,31 @@ class UserInRoom(APIView):
 
 
 class LeaveRoom(APIView):
-    
+    @csrf_exempt
     def post(self, request, format=None):
         if 'room_code' in self.request.session:
+            room_code = self.request.session['room_code']
             self.request.session.pop('room_code')
             host_id = self.request.session.session_key
             room = Room.objects.filter(host = host_id).first()
             room.delete()
+
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(
+                room_code,
+                {
+                    'type': 'websocket.disconnect',
+                    'code': 1000
+                }
+            )
+
+            return JsonResponse({"status": "Room closed successfully"})
             
+    
 
         return Response({'message':'success'}, status= status.HTTP_200_OK)
+    
+    
 
 
 class UpdateRoom(APIView):

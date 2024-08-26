@@ -27,6 +27,7 @@ export default function RoomSpotify() {
  
   
   const { roomCode } = useParams();
+  const {platform } = useParams();
   const [votesToSkip, setVotesToSkip] = useState(null);
   const [guestCanPause, setGuestCanPause] = useState(false);
   const [isHost, setIsHost] = useState(false);
@@ -77,7 +78,7 @@ export default function RoomSpotify() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/get-room?code=' + roomCode);
+        const response = await fetch(`/api/get-room?code=${roomCode}&platform=spotify`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { json, useNavigate, useParams } from "react-router-dom";
 import { Grid, Button, Typography, ThemeProvider } from '@mui/material';
 import { css } from '@emotion/react';
 import CreateRoomPage from './CreateRoomPage';
@@ -24,18 +24,17 @@ export default function RoomYoutube(props, message){
     const [isHost, setIsHost] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
 
-    const chatSocket = new WebSocket(
-      'ws://'
-      + window.location.host
-      + '/ws/room/youtube/'
-      + roomCode 
-    );
-
-    chatSocket.onopen = () => {
-      chatSocket.send("Hello from the frontendt!");
-    }
+    const chatSocket = useRef(null);
     
+    const defaultMedia = {
+      title: "",
+      thumbnailUrl: "",
+      currentTime: 0,
+      duration: 0,
+      state: ""
+  };
 
+    const [Media, SetMedia ] = useState(defaultMedia)
 
     
     
@@ -48,7 +47,9 @@ export default function RoomYoutube(props, message){
 
 
     const handlePlayPause = () => {
-      setIsPlaying(!isPlaying);
+      
+     
+      setIsPlaying(Media.state === "playing");
       // Handle play/pause logic here, e.g., send WebSocket message
   };
 
@@ -59,11 +60,16 @@ export default function RoomYoutube(props, message){
         };
     
         fetch('/api/leave-room', requestOptions)
-          .then(_response => {
+          .then(response => {
+            if (!response.ok) {
+              console.error('Failed to close room:', response.statusText)
+            }
+            chatSocket.current.close();
             navigate("/");
           })
           .catch(error => {
             console.error('Error:', error);
+            chatSocket.current.close();
             navigate("/");
           });
     
@@ -73,7 +79,7 @@ export default function RoomYoutube(props, message){
     useEffect( () => {
         const fetchData = async () => {
             try {
-              const response = await fetch('/api/get-room?code=' + roomCode);
+              const response = await fetch(`/api/get-room?code=${roomCode}&platform=youtube`)
               if (!response.ok) {
                 throw new Error('Network response was not ok');
               }
@@ -90,6 +96,39 @@ export default function RoomYoutube(props, message){
           console.log('Sending room code to extension:', roomCode);
           
           window.postMessage({ roomCode: roomCode }, '*');
+
+          //Run Websocket
+          chatSocket.current = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/room/youtube/'
+            + roomCode 
+          );
+      
+            
+          chatSocket.current.onopen = () => {
+            chatSocket.current.send(JSON.stringify({message: "Hello from the frontendt!"}));
+          }
+
+          chatSocket.current.onclose = function(event) {
+            console.log('WebSocket is closed now.');
+        };
+      
+          chatSocket.current.addEventListener('message', (event) => {
+            const message = JSON.parse(event.data);
+            if (message.type === 'youtubeVideoData') {
+                // Handle messages of type 'specificType'
+                console.log('Specific message received: ', message.content);
+                SetMedia(message.content)
+            } else {
+                console.log('Other message received: ', message);
+            }
+        });
+          return () => {
+            if (chatSocket.current) {
+                chatSocket.current.close();
+            }
+        };
     }, []);
 
 
@@ -116,7 +155,7 @@ export default function RoomYoutube(props, message){
                 Now Playing
             </Typography>
             <Typography variant="body1" gutterBottom>
-                Song Title - Artist Name
+                {Media.artist}
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <IconButton onClick={() => { /* Handle previous track logic */ }}>

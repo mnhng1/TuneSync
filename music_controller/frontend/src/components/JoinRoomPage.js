@@ -21,17 +21,21 @@ export default function JoinRoomPage(props) {
         code: roomCode,
       }),
     };
-            
-    fetch("/api/join-room", requestOptions)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Room not found");
-        } 
-        navigate(`/room/${roomCode}`);
-      })
-      .catch((error) => {
-        setError(true); // Set error to true to trigger error state in TextField
-      });
+
+      fetch("/api/join-room", requestOptions)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Room not found");
+            } 
+            return response.json();
+        })
+        .then((data) => {
+            const platform = data.platform;
+            navigate(`/room/${platform}/${roomCode}`);
+        })
+        .catch((error) => {
+            setError(true); // Set error to true to trigger error state in TextField
+        });
   };
 
   return (
