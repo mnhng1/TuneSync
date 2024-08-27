@@ -39,6 +39,15 @@ Then run server
 python3 manage.py runserver
 ```
 
+
+
+### Install Chrome Extension (for websocket connection with YouTube playback)
+
+
+Go to [chrome://extensions/](url), click load unpacked, and choose the folder chrome extension to load the extension
+
+
+
 # # # Install Node.js
 Install Node Modules
 First cd into the frontend folder.
@@ -61,4 +70,6 @@ or for development:
 ```
 npm run dev
 ```
+
+
 
