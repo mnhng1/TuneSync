@@ -2,11 +2,11 @@
 A platform with room model to host collaborative music/media sessions-based that allows guests to join and control playback/queue/add to playlist of the hosts' choices of music/media platform
 
 ### Features:
-Live playback controller for youtube video, spotify music broadcasted to all users in a room model
-If user in previous room, rejoin the room
-Selections of Youtube/Spotify
-Share code to your friends and join the music session together
-Vote to skip structure (currently only for Spotify) 
+- Live playback controller for youtube video, spotify music broadcasted to all users in a room model
+- If user in previous room, rejoin the room
+- Selections of Youtube/Spotify
+- Share code to your friends and join the music session together
+- Vote to skip structure (currently only for Spotify) 
 
 ### HomePage:
 <img width="1508" alt="image" src="https://github.com/user-attachments/assets/01b56fa0-7623-4227-8ff7-40d5d321d1e2">
