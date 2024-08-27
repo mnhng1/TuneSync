@@ -1,6 +1,17 @@
 # TuneSync-
 A platform with room model to host collaborative music/media session that allows guests to join and control playback/queue/add to playlist of the hosts' choices of music/media platform
 
+<img width="1508" alt="image" src="https://github.com/user-attachments/assets/01b56fa0-7623-4227-8ff7-40d5d321d1e2">
+
+
+Host View: 
+<img width="1509" alt="image" src="https://github.com/user-attachments/assets/f90b3c9e-d156-4123-bb0e-ad76dda8d293">
+
+
+Different live playback state:
+<img width="1508" alt="image" src="https://github.com/user-attachments/assets/f144dba5-9b3e-49ae-af3a-098390c66251">
+
+
 Currently support Youtube(need to install Chrome Extension as directed below), Spotify (no need installation)
 
 Reason of why TuneSync is born: Since spotify (desktop) and youtube doesnt provide a session collaborative playback; I would play a media on my laptop, connecting with a bluetooth speaker. Others can join my session and control the playback as well without the needs to ask for my permission (disturbing my worksflow lol...). 
