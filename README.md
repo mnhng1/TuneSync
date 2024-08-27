@@ -1,4 +1,4 @@
-# Spotify-Collaborative-Player-
+# TuneSync-
 This is my first completed personal fullstack project, following TechwithTim for the boilerplates and codebase of working with Spotify API. I touched with a new, intuitive UI and add further functionality/features like:
 
   - Developed a Chrome extension to read current Youtube playback state on a seperate tab => solve the lack of Youtube API avaiable
@@ -14,7 +14,7 @@ Currently, I am still implementing features like adding video/soundtrack to curr
 Install Required Python Modules
 pip install -r requirements.txt
 
-# # Start Web Server
+Start Web Server
 To start the web server you need to run the following sequence of commands.
 
 First cd into the main project folder 
