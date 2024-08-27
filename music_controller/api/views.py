@@ -28,12 +28,12 @@ class RoomView(generics.ListAPIView):
 class JoinRoom(APIView):
     
     lookup_url_kwarg = 'code'
-    
 
     def post(self, request, format = None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
         code = request.data.get(self.lookup_url_kwarg)
+        name = request.data.get('name')
        
         if code!= None:
             room = Room.objects.filter(code=code).first()
@@ -41,6 +41,8 @@ class JoinRoom(APIView):
             if room is not None:
                 self.request.session['room_code'] = code
                 self.request.session['platform'] = room.platform
+
+                
                 return Response({'message': 'Room Joined!', 'platform': room.platform}, status = status.HTTP_200_OK)
             return Response({"Bad Request": "Invalid Room Code"}, status = status.HTTP_400_BAD_REQUEST)
         return Response({"Bad Request": "Invalid post data, did not find a code key"}, status = status.HTTP_400_BAD_REQUEST)
@@ -57,13 +59,20 @@ class GetRoom(APIView):
         print(code, platform)
         if code is not None:
             room = Room.objects.filter(code=code, platform = platform).first()
+            
             if room is not None:
                 data = RoomSerializer(room).data
+                
                 data['is_host'] = self.request.session.session_key == room.host
+               
+                
+                data['platform'] = room.platform
                 return Response(data, status=status.HTTP_200_OK)
             return Response({'Room Not Found': 'Invalid Room Code.'}, status=status.HTTP_404_NOT_FOUND)
         
         return Response({'Bad Request': 'Code parameter not found in request'}, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 def generate_unique_code():
@@ -89,12 +98,13 @@ class CreateRoomView(APIView):
             host = self.request.session.session_key
             platform = serializer.validated_data.get('platform')
             queryset = Room.objects.filter(host=host)
-
+            
             if queryset.exists():
                 room = queryset[0]
                 room.guest_can_pause = guest_can_pause
                 room.votes_to_skip = votes_to_skip
                 room.code = code  # Ensure the code is set properly
+                
                 room.save(update_fields=['guest_can_pause', 'votes_to_skip', 'code'])
             else:
                 room = Room(host=host, guest_can_pause=guest_can_pause, votes_to_skip=votes_to_skip, code=code, platform=platform)
@@ -113,16 +123,18 @@ class UserInRoom(APIView):
     def get(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
-
         room_code = self.request.session.get('room_code')
+        platform = self.request.session.get('platform')
+        
         if room_code:
             room = Room.objects.filter(code=room_code).first()
             if room:
-                data = {'code': room_code}
+                data = {'code': room_code, 'platform': platform}
                 return JsonResponse(data, status=status.HTTP_200_OK)
 
         # If no valid room code found or room doesn't exist, clear session
         self.request.session['room_code'] = None
+        self.request.session['platform'] = None
         return JsonResponse({'error': 'Room not found'}, status=status.HTTP_404_NOT_FOUND)
 
 
@@ -134,20 +146,21 @@ class LeaveRoom(APIView):
             self.request.session.pop('room_code')
             host_id = self.request.session.session_key
             room = Room.objects.filter(host = host_id).first()
-            room.delete()
+            if room:
+                room.delete()
 
-            channel_layer = get_channel_layer()
-            async_to_sync(channel_layer.group_send)(
-                room_code,
-                {
-                    'type': 'websocket.disconnect',
-                    'code': 1000
-                }
-            )
+                channel_layer = get_channel_layer()
+                async_to_sync(channel_layer.group_send)(
+                    room_code,
+                    {
+                        'type': 'websocket.disconnect',
+                        'code': 1000
+                    }
+                )
 
-            return JsonResponse({"status": "Room closed successfully"})
-            
-    
+                return JsonResponse({"status": "Room closed successfully"})
+            else:
+                return JsonResponse({"status": "Room not found"}, status=status.HTTP_404_NOT_FOUND)
 
         return Response({'message':'success'}, status= status.HTTP_200_OK)
     

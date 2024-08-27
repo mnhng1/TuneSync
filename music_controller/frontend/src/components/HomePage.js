@@ -245,8 +245,16 @@ export default function HomePage(props) {
                 if (data.code) {
                     console.log(data.code)
                     setRoomCode(data.code);
-                    console.log(data.platform)
-                    fetch('/api/get-room?code=' + data.code).then((response) => response.json()).then((data) => {data.platform ==="youtube" ?navigate(`/room/youtube/${data.code}`):navigate(`/room/spotify/${data.code}`)} )
+                    
+                    fetch('/api/get-room?code=' + encodeURIComponent(data.code) + '&platform=' + encodeURIComponent(data.platform))
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.platform) {
+                            data.platform === "youtube" ? navigate(`/room/youtube/${data.code}`) : navigate(`/room/spotify/${data.code}`);
+                        } else {
+                            console.error('Error: Response does not contain platform');
+                        }
+                    })
                     
                 }
             })

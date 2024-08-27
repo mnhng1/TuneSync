@@ -20,13 +20,15 @@ class Room(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) #Auto register time that the room was createds
     current_song = models.CharField(max_length=50, null = True)
     platform = models.CharField(max_length=50, default = 'spotify') 
+    guests = models.ManyToManyField('Guest', related_name='rooms', blank=True)
 
-    
 class Guest(models.Model):
-    room = models.ForeignKey(Room, related_name='guests', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-    joined_at = models.DateTimeField(auto_now_add=True)
-    
+    session_key = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
     def __str__(self):
         return self.name
+
+
+    
+
 

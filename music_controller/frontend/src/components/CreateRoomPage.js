@@ -50,6 +50,7 @@ export default function CreateRoomPage(props) {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        host_name: nameState,
         votes_to_skip: votesToSkipState,
         guest_can_pause: guestCanPauseState,
         platform: platform
@@ -251,6 +252,8 @@ export default function CreateRoomPage(props) {
             <div align="center">Votes Required To Skip Song</div>
           </FormHelperText>
         </FormControl>
+        <br></br>
+        <br></br>
         <FormControl>
           <TextField
             required={true}

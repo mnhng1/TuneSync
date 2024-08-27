@@ -23,6 +23,9 @@ export default function RoomYoutube(props, message){
     const [guestCanPause, setGuestCanPause] = useState(false);
     const [isHost, setIsHost] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
+    
+    const [HostName, setHostName] = useState('')
+
 
     const chatSocket = useRef(null);
     
@@ -94,6 +97,8 @@ export default function RoomYoutube(props, message){
               setVotesToSkip(roomData.votes_to_skip);
               setGuestCanPause(roomData.guest_can_pause);
               setIsHost(roomData.is_host);
+              setHostName(roomData.host_name)
+              
             } catch (error) {
               console.error('Error fetching room details:', error);
               navigate("/");
@@ -200,6 +205,8 @@ export default function RoomYoutube(props, message){
               disabled
           />
           <Button variant="contained" color="secondary" onClick={leaveButtonPress}>Leave Room</Button>
+          
+          
       </Box>
   );
               

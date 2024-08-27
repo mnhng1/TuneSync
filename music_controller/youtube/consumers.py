@@ -18,9 +18,29 @@ class YoutubeConsumer(AsyncWebsocketConsumer):
         except Exception as e:
             logger.error(f"Connection failed: {str(e)}")
             await self.close(code=4000)
-    async def disconnect(self, close_code):
         
-        logger.info(f"Disconnected with code: {close_code}")
+        # Add guest to the room
+        session_key = self.scope['session'].session_key
+        room = Room.objects.get(code=self.room_code)
+        guest, created = Guest.objects.get_or_create(session_key=session_key)
+        room.guests.add(guest)
+        room.save()
+
+        # Broadcast the updated guest list
+        await self.broadcast_guest_list(room)
+
+    async def disconnect(self, close_code):
+        # Remove guest from the room
+        session_key = self.scope['session'].session_key
+        room = Room.objects.get(code=self.room_code)
+        guest = Guest.objects.get(session_key=session_key)
+        room.guests.remove(guest)
+        room.save()
+
+        # Broadcast the updated guest list
+        await self.broadcast_guest_list(room)
+        
+
         await self.channel_layer.group_discard(self.room_code, self.channel_name)
 
     async def receive(self, text_data):
@@ -57,6 +77,24 @@ class YoutubeConsumer(AsyncWebsocketConsumer):
                         'state': data.get('state', 'pause')
                     } 
                 )
+                
+    async def broadcast_guest_list(self, room):
+        guests = [guest.name for guest in room.guests.all()]
+        await self.channel_layer.group_send(
+            self.room_code,
+            {
+                'type': 'guest_list_update',
+                'guests': guests
+            }
+        )
+
+    async def guest_list_update(self, event):
+        guests = event['guests']
+
+        # Send message to WebSocket
+        await self.send(text_data=json.dumps({
+            'guests': guests
+        }))
 
 
     async def video_data(self, event):
