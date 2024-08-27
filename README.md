@@ -10,15 +10,22 @@ Technology - React, Django, Webpack, Git, Github, Websocket, Redis, DRF
 - What I want to improve?
 Currently, I am still implementing features like adding video/soundtrack to current playlist, but due to time constraint, I will be putting this to a hiatus. I am also looking for ways to bring this app to mobile friendly version, where it could read YouTube Music data (seems not possible due to strict content-policy app of IOS)
 
-# Setup Instructions
+## Setup Instructions
 Install Required Python Modules
-pip install -r requirements.txt
 
-Start Web Server
+```
+pip install -r requirements.txt
+```
+
+## Start Web Server
 To start the web server you need to run the following sequence of commands.
 
 First cd into the main project folder 
 
+```
+cd music_controller
+```
+Then run server 
 ```
 python3 manage.py runserver
 ```
