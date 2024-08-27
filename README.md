@@ -1,14 +1,20 @@
 # TuneSync-
-A platform with room model to host collaborative music/media session that allows guests to join and control playback/queue/add to playlist of the hosts' choices of music/media platform
+A platform with room model to host collaborative music/media sessions-based that allows guests to join and control playback/queue/add to playlist of the hosts' choices of music/media platform
 
+### Features:
+Live playback controller for youtube video, spotify music broadcasted to all users in a room model
+If user in previous room, rejoin the room
+Selections of Youtube/Spotify
+
+### HomePage:
 <img width="1508" alt="image" src="https://github.com/user-attachments/assets/01b56fa0-7623-4227-8ff7-40d5d321d1e2">
 
 
-Host View: 
+### Host View: 
 <img width="1509" alt="image" src="https://github.com/user-attachments/assets/f90b3c9e-d156-4123-bb0e-ad76dda8d293">
 
 
-Different live playback state:
+### Different live playback state:
 <img width="1508" alt="image" src="https://github.com/user-attachments/assets/f144dba5-9b3e-49ae-af3a-098390c66251">
 
 
@@ -24,6 +30,7 @@ This is my first completed personal fullstack project, following TechwithTim for
 
 - What I have learned?
 Technology - React, Django, Webpack, Git, Github, Websocket, Redis, DRF
+
 
 - What I want to improve?
 Currently, I am still implementing features like adding video/soundtrack to current playlist, but due to time constraint, I will be putting this to a hiatus. I am also looking for ways to bring this app to mobile friendly version, where it could read YouTube Music data (seems not possible due to strict content-policy app of IOS)
