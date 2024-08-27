@@ -22,5 +22,11 @@ class Room(models.Model):
     platform = models.CharField(max_length=50, default = 'spotify') 
 
     
-
+class Guest(models.Model):
+    room = models.ForeignKey(Room, related_name='guests', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    joined_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
 

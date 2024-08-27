@@ -12,6 +12,48 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         };
         websocket.onmessage = function(event) {
             console.log('WebSocket message received:', event.data);
+            let data;
+            try {
+                data = JSON.parse(event.data)
+            } catch (e) {
+                console.error('Error parsing Websocket message', e)
+                return;
+            }
+
+            if (data["action"]){
+                switch (data["action"]) {
+                    case 'play':
+                        chrome.tabs.query({url: "*://*.youtube.com/*"}, (tabs) => {
+                            tabs.forEach((tab) => {
+                                chrome.tabs.sendMessage(tab.id, { action: "playVideo" });
+                            }); })
+                        break;
+                    case 'pause':
+                        chrome.tabs.query({url: "*://*.youtube.com/*"}, (tabs) => {
+                            tabs.forEach((tab) => {
+                                chrome.tabs.sendMessage(tab.id, { action: "pauseVideo" });
+                            }); })
+                        break;
+                    case 'next':
+                        chrome.tabs.query({url: "*://*.youtube.com/*"}, (tabs) => {
+                            tabs.forEach((tab) => {
+                                chrome.tabs.sendMessage(tab.id, { action: "nextVideo" });
+                            }); })
+                        break;
+
+                        case 'prev':
+                            chrome.tabs.query({url: "*://*.youtube.com/*"}, (tabs) => {
+                                tabs.forEach((tab) => {
+                                    console.log('sending prev')
+                                    chrome.tabs.sendMessage(tab.id, { action: "prevVideo" });
+                                }); })
+                            break;
+                    default:
+                        console.warn('Unknown action:', data['action']);
+                }
+            }   
+            
+
         };
         websocket.onerror = function(error) {
             console.error('WebSocket error:', error);
@@ -30,7 +72,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (changeInfo.status === "complete") {
         if (tab.url.startsWith('https://www.youtube.com') || tab.url.startsWith('https://music.youtube.com')) {
             // Send a message to the content script to start fetching video data
-            chrome.tabs.sendMessage(tabId, { action: "startInterval" });
+            chrome.tabs.sendMessage(tabId, { action: "setupVideoListeners" });
 
         }
     }

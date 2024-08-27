@@ -80,6 +80,10 @@ export default function RoomSpotify() {
       try {
         const response = await fetch(`/api/get-room?code=${roomCode}&platform=spotify`);
         if (!response.ok) {
+          if (response.status === 404) {
+            console.error('Room not Found')
+            navigate("/")
+          }
           throw new Error('Network response was not ok');
         }
         const roomData = await response.json();

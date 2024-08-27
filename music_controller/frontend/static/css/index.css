@@ -31,3 +31,24 @@ html,  body{
     height: auto;
 }
 
+
+.room-not-found {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #191414; /* Spotify's background color */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.room-not-found h1 {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.room-not-found p {
+    font-size: 1.5em;
+}

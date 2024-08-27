@@ -3,6 +3,7 @@ import HomePage from "./HomePage";
 import JoinRoomPage from "./JoinRoomPage";
 import CreateRoomPage from "./CreateRoomPage";
 import RoomYoutube from "./RoomYoutube";
+import RoomNotFound from "./RoomNotFound"
 
 import RoomSpotify from "./RoomSpotify";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -29,6 +30,7 @@ export default function App(props) {
             <Route path = "/join-room" element = {<JoinRoomPage/>}/>
             <Route path = "/room/spotify/:roomCode" element = {<RoomSpotify/>}/>
             <Route path = "/room/youtube/:roomCode" element = {<RoomYoutube/>}/>
+            <Route path = "/room-not-found" element = {<RoomNotFound/>} />
             
         </Routes>
     </Router>

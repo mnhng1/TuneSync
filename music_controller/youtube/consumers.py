@@ -33,23 +33,47 @@ class YoutubeConsumer(AsyncWebsocketConsumer):
 
         if text_data and is_json(text_data):
             data = json.loads(text_data)
-            await self.channel_layer.group_send(
-                self.room_code,
-                {
-                    'type': 'youtubeVideoData',
-                    'action': data.get('action', None)
-                }
-            )
 
-        
-        
+            #handle control playback
+            if 'action' in data: 
+                print(data['action'])
+                await self.channel_layer.group_send(
+                    self.room_code,
+                    {
+                        'type': 'control_video',
+                        'action': data['action']
+                    }
+                )
+            else: 
+                await self.channel_layer.group_send(
+                    self.room_code,
+                    {
+                        'type': 'video_data',
+                        'title':data.get('title', ''), 
+                        'thumbnailUrl': data.get('thumbnailUrl', ''), 
+                        'currentTime': data.get('currentTime', 0), 
+                        'duration': data.get('duration', 0), 
+                        
+                        'state': data.get('state', 'pause')
+                    } 
+                )
+
+
+    async def video_data(self, event):
+        # Send the video data back to the WebSocket client
+        await self.send(text_data=json.dumps({
+            'title': event['title'],
+            'thumbnailUrl': event['thumbnailUrl'],
+            'currentTime': event['currentTime'],
+            'duration': event['duration'],
+            
+            'state': event['state']
+        }))   
+    
     async def websocket_disconnect(self, event):
         print("closing websocket")
         await self.close()
 
-
-
-        
 
     async def control_video(self, event):
         if 'action' in event:

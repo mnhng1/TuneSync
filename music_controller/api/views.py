@@ -103,8 +103,9 @@ class CreateRoomView(APIView):
             # Set the room_code in the session
             self.request.session['room_code'] = code
             self.request.session['platform'] = platform
+            
             self.request.session.save()
-
+            
             return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
