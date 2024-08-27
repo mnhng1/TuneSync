@@ -96,4 +96,9 @@ npm run dev
 ```
 
 
+## Add an .env under /spotify directory, replace your client id, client secret and redirect URI from spotifyapi 
+
+<img width="788" alt="image" src="https://github.com/user-attachments/assets/105e8bb9-2a3e-4832-bfa2-b13ecc6d210e">
+
+
 
