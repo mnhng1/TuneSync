@@ -5,9 +5,14 @@ A platform with room model to host collaborative music/media sessions-based that
 Live playback controller for youtube video, spotify music broadcasted to all users in a room model
 If user in previous room, rejoin the room
 Selections of Youtube/Spotify
+Share code to your friends and join the music session together
 
 ### HomePage:
 <img width="1508" alt="image" src="https://github.com/user-attachments/assets/01b56fa0-7623-4227-8ff7-40d5d321d1e2">
+
+### Create Room Page and Join Room Page
+
+<img width="1255" alt="image" src="https://github.com/user-attachments/assets/83e22a90-bc27-4890-83e6-a5bbce130c2b">
 
 
 ### Host View: 
